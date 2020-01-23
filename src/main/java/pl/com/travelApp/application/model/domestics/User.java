@@ -5,6 +5,7 @@ import lombok.Setter;
 
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -25,11 +26,8 @@ public class User {
     private boolean active;
     @Column(nullable = false)
     private String password;
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name="User_Trip",
-            joinColumns = {@JoinColumn(name="user_id")},
-            inverseJoinColumns = {@JoinColumn(name="trip_id")})
-    private Set<Trip> trips;
+    @OneToMany(mappedBy = "user")
+    private List<Trip> trips;
 
     public String getPassword() {
         return password;

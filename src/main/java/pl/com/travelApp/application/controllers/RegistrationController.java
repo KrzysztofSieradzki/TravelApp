@@ -43,7 +43,7 @@ public class RegistrationController {
 
         userRepository.save(user);
         log.info("User has been saved as : " + username);
-        return "redirect:/index.html";
+        return "redirect:/";
     }
 
 }

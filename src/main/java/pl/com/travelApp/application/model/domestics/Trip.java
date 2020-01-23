@@ -18,9 +18,12 @@ public class Trip {
     @Column(nullable = false)
     private String target;
     @Column(nullable = false)
-    private Date year;
-    @ManyToMany(mappedBy = "trips")
-    private Set<User> users;
+    private Integer year;
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+    @Column(name="user_id", insertable = false, updatable = false)
+    private Long userId;
 
 
     @Override

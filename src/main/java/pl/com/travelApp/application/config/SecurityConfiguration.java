@@ -35,15 +35,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     http.authorizeRequests()
             .antMatchers("/register").permitAll()
             .antMatchers("/login").permitAll()
+            .antMatchers("/").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()
             .loginPage("/login")
-            .defaultSuccessUrl("/index.html")
+            .defaultSuccessUrl("/")
             .and()
         .logout()
-            .logoutUrl("/logout")
-            .logoutSuccessUrl("/login");
+            .logoutSuccessUrl("/");
+
     }
 
     @Bean
