@@ -1,0 +1,43 @@
+package pl.com.travelApp.application.controllers;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import pl.com.travelApp.application.model.domestics.User;
+import pl.com.travelApp.application.model.repositories.UserRepository;
+
+@Controller
+@RequestMapping("/register")
+public class RegistrationController {
+    private static final Logger logg = LoggerFactory.getLogger(RegistrationController.class);
+    private final UserRepository userRepository;
+
+    @Autowired
+    public RegistrationController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @GetMapping
+    public String prepareRegistrationPage(){
+        return "/WEB-INF/views/registration-page.jsp";
+    }
+
+    @PostMapping
+    public String processRegistrationPage(String username, String password,
+                                          String firstName, String lastName){
+        User user = new User();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setUsername(username);
+        user.setPassword(password);
+
+        userRepository.save(user);
+        logg.info("User has been saved as : " + username);
+        return "redirect:/index.html";
+    }
+
+}

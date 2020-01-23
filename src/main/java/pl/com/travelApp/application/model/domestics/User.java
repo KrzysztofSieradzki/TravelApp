@@ -1,14 +1,14 @@
-package pl.com.travelApp.model;
+package pl.com.travelApp.application.model.domestics;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.GetMapping;
+
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table
+@Table(name = "users")
 @Getter @Setter
 public class User {
     @Id
@@ -22,6 +22,16 @@ public class User {
     private String lastName;
     @Column(nullable = false)
     private boolean active;
+    @Column(nullable = false)
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -49,5 +59,45 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", active=" + active +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
