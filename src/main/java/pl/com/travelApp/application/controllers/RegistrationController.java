@@ -1,5 +1,6 @@
 package pl.com.travelApp.application.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,9 @@ import pl.com.travelApp.application.model.repositories.UserRepository;
 
 @Controller
 @RequestMapping("/register")
+@Slf4j
 public class RegistrationController {
-    private static final Logger logg = LoggerFactory.getLogger(RegistrationController.class);
+
     private final UserRepository userRepository;
 
     @Autowired
@@ -36,7 +38,7 @@ public class RegistrationController {
         user.setPassword(password);
 
         userRepository.save(user);
-        logg.info("User has been saved as : " + username);
+        log.info("User has been saved as : " + username);
         return "redirect:/index.html";
     }
 
