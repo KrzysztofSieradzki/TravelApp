@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginControler {
 
     @GetMapping
-    private String getLoginPager(){
+    public String getLoginPager(){
         return "/WEB-INF/views/login-page.jsp";
     }
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -24,6 +25,11 @@ public class User {
     private boolean active;
     @Column(nullable = false)
     private String password;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name="User_Trip",
+            joinColumns = {@JoinColumn(name="user_id")},
+            inverseJoinColumns = {@JoinColumn(name="trip_id")})
+    private Set<Trip> trips;
 
     public String getPassword() {
         return password;
