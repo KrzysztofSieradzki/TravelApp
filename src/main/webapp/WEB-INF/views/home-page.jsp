@@ -13,6 +13,7 @@
         #chartdiv {
             width: 60%;
             height: 500px;
+            padding: 10px;
         }
 
     </style>
@@ -74,8 +75,8 @@
 </head>
 <body>
 <jsp:include page="fragments/main-menu.jsp"/>
-<div class="container" style="width: 100%; padding: 0px">
-    <div style="float: left">
+<div class="container" style="width: 100%">
+    <div style="float: left; width: 20%">
     <sec:authorize access="isAuthenticated()">
     <div class="row" style="margin-top: 40px; margin-bottom: 10px">
         <div class="col-1"></div>
@@ -114,7 +115,7 @@
 <%--    ==========================================================================--%>
     <div id="chartdiv" style="float: left"></div>
 <%--    ==========================================================================--%>
-    <div style="float: left">
+    <div style="float: left; width: 20%">
     <div class="row" style="margin-top: 40px; margin-bottom: 10px">
         <div class="col-1"></div>
         <div class="col-6"><h2>Moje cele : </h2></div>
