@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-
+    <sec:authorize access="isAuthenticated()">
     <div class="row" style="margin-top: 40px; margin-bottom: 10px">
         <div class="col-1"></div>
         <div class="col-6"><h2>Dodaj miejce</h2></div>
@@ -23,11 +23,29 @@
         <div class="col-2"></div>
         <div class="col-8">
 
-            <%-- Tutaj formularz dodawania nowego ogłoszenia (PÓŹNIEJ) --%>
+            <form method="post" action="/add-trip">
+                <div class="form-group">
+                    <label for="target">Nazwa kraju:</label>
+                    <input type="text" required name="target" id="target" class="form-control"
+                           placeholder="Podaj państwo które chcesz zobaczyć"/>
+                </div>
+                <div class="form-group">
+                    <label for="year">Przewidywany rok</label>
+                    <input type= "number" name="year" id="year"
+                              class="form-control"
+                              placeholder="Mój cel na rok :"/>
+                </div>
+                <button class="btn btn-primary" type="submit">Dodaj</button>
+                <button class="btn btn-secondary" type="reset">Wyczyść dane</button>
+                <sec:csrfInput/>
+            </form>
+
+
 
         </div>
         <div class="col-2"></div>
     </div>
+    </sec:authorize>
 
     <div class="row" style="margin-top: 40px; margin-bottom: 10px">
         <div class="col-1"></div>
