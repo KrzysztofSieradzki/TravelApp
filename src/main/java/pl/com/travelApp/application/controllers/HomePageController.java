@@ -1,31 +1,36 @@
 package pl.com.travelApp.application.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.com.travelApp.application.dto.LogggedUserDTO;
+import pl.com.travelApp.application.dto.TripDTO;
 import pl.com.travelApp.application.model.entities.Trip;
-import pl.com.travelApp.application.model.repositories.TripRepository;
+import pl.com.travelApp.application.service.TripService;
+import pl.com.travelApp.application.service.UserService;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class HomePageController {
 
-    private final TripRepository tripRepository;
+    private final UserService userService;
+    private final TripService tripService;
 
-    @Autowired
-    public HomePageController(TripRepository tripRepository) {
-        this.tripRepository = tripRepository;
+    public HomePageController(UserService userService, TripService tripService) {
+        this.userService = userService;
+        this.tripService = tripService;
     }
 
-    @GetMapping
-    public String prepareHomePage(Model model){
-        List<Trip> allTrips = tripRepository.findAllByOrderByYear();
-        model.addAttribute("trips",allTrips);
 
+    @GetMapping
+    public String prepareHomePage(Model model, Principal principal){
+        LogggedUserDTO userDTO = userService.getUser(principal.getName());
+        List<TripDTO> allTrips = tripService.findAllByUserId(userDTO.getId());
+        model.addAttribute("trips",allTrips);
         return "home-page";
     }
 

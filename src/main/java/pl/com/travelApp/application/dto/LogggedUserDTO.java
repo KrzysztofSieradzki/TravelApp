@@ -1,5 +1,6 @@
 package pl.com.travelApp.application.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data

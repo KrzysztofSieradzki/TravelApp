@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface TripRepository extends JpaRepository<Trip,Long> {
 
-    List<Trip> findAllByOrderByYear();
+    List<Trip> findAllByUserId(Long id);
 
 }

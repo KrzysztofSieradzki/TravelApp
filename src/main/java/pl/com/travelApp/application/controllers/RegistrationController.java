@@ -1,26 +1,22 @@
 package pl.com.travelApp.application.controllers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.com.travelApp.application.model.entities.User;
-import pl.com.travelApp.application.model.repositories.UserRepository;
+import pl.com.travelApp.application.dto.RegisterUserDTO;
+import pl.com.travelApp.application.service.UserService;
 
 @Controller
 @RequestMapping("/register")
 @Slf4j
 public class RegistrationController {
 
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
-    @Autowired
-    public RegistrationController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+   private final UserService userService;
+
+    public RegistrationController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
@@ -29,19 +25,18 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String processRegistrationPage(String username, String password,
-                                          String firstName, String lastName){
-        User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setUsername(username);
-        user.setActive(true);
-        String encodedPassword = passwordEncoder.encode(password);
-        user.setPassword(encodedPassword);
+    public String processRegistrationPage(RegisterUserDTO registerUserDTO){
 
-        userRepository.save(user);
-        log.info("User has been saved as : " + username);
-        return "redirect:/";
+        try{
+            userService.saveUser(registerUserDTO);
+        }catch (RuntimeException e){
+            e.printStackTrace();
+            return "redirect:/register";
+        }
+
+        log.info("User has been saved as : " + registerUserDTO.getUsername());
+
+        return "login-page";
     }
 
 }
