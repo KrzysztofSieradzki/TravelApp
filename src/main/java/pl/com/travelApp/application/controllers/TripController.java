@@ -3,8 +3,8 @@ package pl.com.travelApp.application.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.com.travelApp.application.model.domestics.Trip;
-import pl.com.travelApp.application.model.domestics.User;
+import pl.com.travelApp.application.model.entities.Trip;
+import pl.com.travelApp.application.model.entities.User;
 import pl.com.travelApp.application.model.repositories.TripRepository;
 import pl.com.travelApp.application.model.repositories.UserRepository;
 

@@ -1,15 +1,13 @@
 package pl.com.travelApp.application.controllers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.com.travelApp.application.model.domestics.User;
+import pl.com.travelApp.application.model.entities.User;
 import pl.com.travelApp.application.model.repositories.UserRepository;
 
 @Controller
@@ -27,7 +25,7 @@ public class RegistrationController {
 
     @GetMapping
     public String prepareRegistrationPage(){
-        return "/WEB-INF/views/registration-page.jsp";
+        return "registration-page";
     }
 
     @PostMapping

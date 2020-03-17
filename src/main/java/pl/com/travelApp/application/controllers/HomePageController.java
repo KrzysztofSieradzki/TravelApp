@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.com.travelApp.application.model.domestics.Trip;
+import pl.com.travelApp.application.model.entities.Trip;
 import pl.com.travelApp.application.model.repositories.TripRepository;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class HomePageController {
         List<Trip> allTrips = tripRepository.findAllByOrderByYear();
         model.addAttribute("trips",allTrips);
 
-        return "/WEB-INF/views/home-page.jsp";
+        return "home-page";
     }
 
 

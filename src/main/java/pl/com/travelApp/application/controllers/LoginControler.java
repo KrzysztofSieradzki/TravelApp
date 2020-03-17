@@ -10,6 +10,6 @@ public class LoginControler {
 
     @GetMapping
     public String getLoginPager(){
-        return "/WEB-INF/views/login-page.jsp";
+        return "login-page";
     }
 }
