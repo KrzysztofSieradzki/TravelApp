@@ -9,11 +9,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
 <body>
-<jsp:include page="fragments/main-menu.jsp"/>
 <div class="container">
     <div class="row" style="margin-top: 40px">
         <div class="col-1"></div>
-        <div class="col-10" style="padding-bottom: 20px"><h2>Rejestracja</h2></div>
+        <div class="col-10" style="padding-bottom: 20px"><h2>Registration</h2></div>
         <div class="col-1"></div>
     </div>
     <div class="row">
@@ -21,23 +20,23 @@
         <div class="col-6">
             <form method="post" action="/register">
                 <div class="form-group">
-                    <label for="username">Nazwa użytkownika</label>
-                    <input type="text" required name="username" id="username" class="form-control" placeholder="Podaj nazwę użytkownika"/>
+                    <label for="username">Username</label>
+                    <input type="text" required name="username" id="username" class="form-control" placeholder="Your username"/>
                 </div>
                 <div class="form-group">
-                    <label for="firstName">Imię</label>
-                    <input type="text" required name="firstName" id="firstName" class="form-control" placeholder="Podaj imię"/>
+                    <label for="firstName">First Name</label>
+                    <input type="text" required name="firstName" id="firstName" class="form-control" placeholder="Your first name"/>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Nazwisko</label>
-                    <input type="text" required name="lastName" id="lastName" class="form-control" placeholder="Podaj nazwisko"/>
+                    <label for="lastName">Last name</label>
+                    <input type="text" required name="lastName" id="lastName" class="form-control" placeholder="Your last name"/>
                 </div>
                 <div class="form-group">
-                    <label for="password">Hasło</label>
-                    <input type="password" required name="password" id="password" class="form-control" placeholder="Podaj hasło"/>
+                    <label for="password">Password</label>
+                    <input type="password" required name="password" id="password" class="form-control" placeholder="Password"/>
                 </div>
-                <button class="btn btn-primary" type="submit">Zarejestruj</button>
-                <button class="btn btn-secondary" type="reset">Wyczyść dane</button>
+                <button class="btn btn-primary" type="submit">Sign in</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
                 <sec:csrfInput/>
             </form>
         </div>

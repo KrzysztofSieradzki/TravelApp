@@ -4,47 +4,74 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="TravelDex">
+    <meta name="keyword" content="Travel, Map, Adventure">
+    <title>TravelDex - organize your adventure !</title>
+
+    <!-- Favicons -->
+<%--    <link href="img/favicon.png" rel="icon">--%>
+<%--    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">--%>
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="../../static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <link href="../../static/css/style-responsive.css" rel="stylesheet">
+
+    <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
 </head>
 <body>
-<jsp:include page="fragments/main-menu.jsp"/>
-<div class="container">
-    <div class="row" style="margin-top: 40px">
-        <div class="col-1"></div>
-        <div class="col-10" style="padding-bottom: 20px"><h2>Logowanie</h2></div>
-        <div class="col-1"></div>
-    </div>
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-6">
-            <c:if test="${param['error'] != null}">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Błędne dane logowania!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+
+<div id="login-page">
+    <div class="container">
+
+        <form method="post" class="form-login" action="/login">
+            <h2 class="form-login-heading">sign in now</h2>
+            <div class="login-wrap">
+                <input type="text" required name="username" id="username" class="form-control" placeholder="Username" autofocus>
+                <br>
+                <input type="password" required name="password" id="password" class="form-control" placeholder="Password">
+                <br>
+                <c:if test="${param['error'] != null}">
+                        <div style="position:relative;">
+                                <h5 style="margin-left: auto; margin-right: auto" class="modal-title">Wrong password or login</h5>
+                        </div>
+                </c:if>
+                <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+
+                <hr>
+
+                <div class="registration">
+                    Don't have an account yet?<br/>
+                    <a class="" href="/register">
+                        Create an account
+                    </a>
                 </div>
-            </c:if>
-            <form method="post" action="/login">
-                <div class="form-group">
-                    <label for="username">Nazwa użytkownika</label>
-                    <input type="text" required name="username" id="username" class="form-control" placeholder="Podaj nazwę użytkownika"/>
-                </div>
-                <div class="form-group">
-                    <label for="password">Hasło</label>
-                    <input type="password" required name="password" id="password" class="form-control" placeholder="Podaj hasło"/>
-                </div>
-                <button class="btn btn-primary" type="submit">Zaloguj</button>
-                <button class="btn btn-secondary" type="reset">Wyczyść dane</button>
-                <sec:csrfInput/>
-            </form>
-        </div>
-        <div class="col-5"></div>
+            </div>
+            <sec:csrfInput/>
+        </form>
     </div>
 </div>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="../../static/lib/jquery/jquery.min.js"></script>
+<script src="../../static/lib/bootstrap/js/bootstrap.min.js"></script>
+<!--BACKSTRETCH-->
+<!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+<script type="text/javascript" src="../../static/lib/jquery.backstretch.min.js"></script>
+<script>
+    $.backstretch("../../static/img/background.jpg", {
+        speed: 500
+    });
+</script>
+
 </body>
 </html>
