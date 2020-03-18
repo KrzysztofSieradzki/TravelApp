@@ -106,14 +106,14 @@ a, a:hover, a:focus {
 .btn-theme.active,
 .open .dropdown-toggle.btn-theme {
   color: #fff;
-  background-color: #e0a31f;
-  border-color: #e0a31f;
+  background-color: #f7c745;
+  border-color: #f7c745;
 }
 
 .btn-theme02 {
   color: #fff;
-  background-color: #ac92ec;
-  border-color: #967adc;
+  background-color: #9c7a1f;
+  border-color: #9c7a1f;
 }
 .btn-theme02:hover,
 .btn-theme02:focus,
@@ -121,8 +121,8 @@ a, a:hover, a:focus {
 .btn-theme02.active,
 .open .dropdown-toggle.btn-theme02 {
   color: #fff;
-  background-color: #967adc;
-  border-color: #967adc;
+  background-color: #ba9020;
+  border-color: #ba9020;
 }
 
 .btn-theme03 {
