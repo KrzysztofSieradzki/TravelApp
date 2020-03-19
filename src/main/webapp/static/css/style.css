@@ -33,7 +33,6 @@ a, a:hover, a:focus {
     outline: none;
 }
 ::selection {
-
     background: #e0a31f;
     color: #fff;
 }
@@ -375,6 +374,9 @@ ul.sidebar-menu li a.active, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
     transition: all 0.3s ease;
 }
 
+a:hover{
+    background: #e0a31f;
+}
 
 ul.sidebar-menu li a i {
     font-size: 15px;

@@ -5,18 +5,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <style>
-        #chartdiv {
-            width: 60%;
-            height: 500px;
-            padding: 10px;
-        }
-
-    </style>
+    <link href="../../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="../../static/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="../../static/css/style.css" rel="stylesheet">
+    <link href="../../static/css/style-responsive.css" rel="stylesheet">
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/maps.js"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
@@ -92,7 +86,7 @@
 </head>
 <body>
 <jsp:include page="fragments/header.jsp"/>
-<jsp:include page="fragments/aside.jsp"/>
+<aside><jsp:include page="fragments/aside.jsp"/></aside>
 <div class="container" style="width: 100%; min-width: 100%; margin-right: 0px;
 margin-left: 0px; max-width: 100%;">
 <%--    <div style="float: left; width: 20%">--%>
@@ -168,5 +162,17 @@ margin-left: 0px; max-width: 100%;">
 <%--</div>--%>
     <div style="clear: both"></div>
 </div>
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="../../static/lib/jquery/jquery.min.js"></script>
+<script src="../../static/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/lib/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="../../static/lib/jquery.ui.touch-punch.min.js"></script>
+<script class="include" type="text/javascript" src="../../static/lib/jquery.dcjqaccordion.2.7.js"></script>
+<script src="../../static/lib/jquery.scrollTo.min.js"></script>
+<script src="../../static/lib/jquery.nicescroll.js" type="text/javascript"></script>
+<!--common script for all pages-->
+<script src="../../static/lib/common-scripts.js"></script>
+<!--script for this page-->
 </body>
 </html>

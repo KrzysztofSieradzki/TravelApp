@@ -17,72 +17,37 @@
     <link href="../../static/css/style-responsive.css" rel="stylesheet">
 </head>
 <body>
-<aside>
+
     <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
-            <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+        <ul class="sidebar-menu"  id="nav-accordion">
+            <p class="centered"><a href="/"></a></p>
             <h5 class="centered">${pageContext.request.userPrincipal.principal.username}</h5>
             <li class="mt">
-                <a href="index.html">
-                    <i class="fa fa-dashboard"></i>
-                    <span>Dashboard</span>
+                <a href="/">
+                    <span>Map</span>
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;">
-                    <i class="fa fa-cogs"></i>
+                <a href="/">
                     <span>Components</span>
                 </a>
-                <ul class="sub">
-                    <li><a href="grids.html">Grids</a></li>
-                    <li><a href="calendar.html">Calendar</a></li>
-                </ul>
             </li>
             <li class="sub-menu">
-                <a class="active" href="javascript:;">
-                    <i class="fa fa-book"></i>
-                    <span>Extra Pages</span>
-                </a>
-                <ul class="sub">
-                    <li class="active"><a href="blank.html">Blank Page</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="lock_screen.html">Lock Screen</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="invoice.html">Invoice</a></li>
-                    <li><a href="pricing_table.html">Pricing Table</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="404.html">404 Error</a></li>
-                    <li><a href="500.html">500 Error</a></li>
-                </ul>
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;">
-                    <i class="fa fa-tasks"></i>
+                <a href="/">
                     <span>Forms</span>
                 </a>
-                <ul class="sub">
-                    <li><a href="form_component.html">Form Components</a></li>
-                    <li><a href="advanced_form_components.html">Advanced Components</a></li>
-                    <li><a href="form_validation.html">Form Validation</a></li>
-                    <li><a href="contactform.html">Contact Form</a></li>
-                </ul>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;">
-                    <i class="fa fa-th"></i>
+                <a href="/">
                     <span>Data Tables</span>
                 </a>
-                <ul class="sub">
-                    <li><a href="basic_table.html">Basic Table</a></li>
-                    <li><a href="responsive_table.html">Responsive Table</a></li>
-                    <li><a href="advanced_table.html">Advanced Table</a></li>
-                </ul>
             </li>
         </ul>
         <!-- sidebar menu end-->
     </div>
-</aside>
+
 <!--sidebar end-->
+
 </body>
 </html>
