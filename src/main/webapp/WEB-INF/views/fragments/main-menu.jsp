@@ -23,7 +23,7 @@
     </sec:authorize>
     <sec:authorize access="isAuthenticated()">
         <div style="margin-right: 20px"> Witaj, <strong>${pageContext.request.userPrincipal.principal.username}</strong></div>
-        <form class="form-inline mt-3" method="post" action="/logout">
+        <form class="logout" method="post" action="/logout">
             <button class="btn btn-outline-primary" type="submit">Wyloguj</button>
             <sec:csrfInput/>
         </form>

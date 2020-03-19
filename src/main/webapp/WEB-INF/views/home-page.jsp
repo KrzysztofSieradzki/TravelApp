@@ -91,8 +91,9 @@
     </script>
 </head>
 <body>
-<jsp:include page="fragments/main-menu.jsp"/>
-<div class="container" style="width: 100%">
+<jsp:include page="fragments/header.jsp"/>
+<div class="container" style="width: 100%; min-width: 100%; margin-right: 0px;
+margin-left: 0px; max-width: 100%;">
     <div style="float: left; width: 20%">
     <sec:authorize access="isAuthenticated()">
     <div class="row" style="margin-top: 40px; margin-bottom: 10px">
@@ -130,41 +131,40 @@
     </sec:authorize>
     </div>
 <%--    ==========================================================================--%>
-    <div id="chartdiv" style="float: left"></div>
-    <div id="idCountry"></div>
+    <div id="chartdiv" style="float: left; width: 80%; height: 100%; padding: 5px;"></div>
 <%--    ==========================================================================--%>
-    <div style="float: left; width: 20%">
-    <div class="row" style="margin-top: 40px; margin-bottom: 10px">
-        <div class="col-1"></div>
-        <div class="col-6"><h2>Moje cele : </h2></div>
-        <div class="col-5"></div>
-    </div>
+<%--    <div style="float: left; width: 20%">--%>
+<%--    <div class="row" style="margin-top: 40px; margin-bottom: 10px">--%>
+<%--        <div class="col-1"></div>--%>
+<%--        <div class="col-6"><h2>Moje cele : </h2></div>--%>
+<%--        <div class="col-5"></div>--%>
+<%--    </div>--%>
 
-    <div class="row">
-        <div class="col-12" style="padding-bottom: 20px">
+<%--    <div class="row">--%>
+<%--        <div class="col-12" style="padding-bottom: 20px">--%>
 
-           <table>
-               <thead>
-                <th>Lp.</th>
-                <th>Target</th>
-                <th>Year</th>
-                <th>Voyager</th>
-               </thead>
-               <tbody>
-                <c:forEach items="${trips}" var="trip" varStatus="stat">
-                    <tr>
-                    <td>${stat.count}</td>
-                    <td>${trip.target}</td>
-                    <td>${trip.year}</td>
-                    <td>${trip.user.username}</td>
-                    </tr>
-                </c:forEach>
-               </tbody>
-           </table>
+<%--            <table>--%>
+<%--                <thead>--%>
+<%--                <th>Lp.</th>--%>
+<%--                <th>Target</th>--%>
+<%--                <th>Year</th>--%>
+<%--                <th>Voyager</th>--%>
+<%--                </thead>--%>
+<%--                <tbody>--%>
+<%--                <c:forEach items="${trips}" var="trip" varStatus="stat">--%>
+<%--                    <tr>--%>
+<%--                        <td>${stat.count}</td>--%>
+<%--                        <td>${trip.target}</td>--%>
+<%--                        <td>${trip.year}</td>--%>
+<%--                        <td>${trip.user.username}</td>--%>
+<%--                    </tr>--%>
+<%--                </c:forEach>--%>
+<%--                </tbody>--%>
+<%--            </table>--%>
 
-        </div>
-    </div>
-    </div>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
     <div style="clear: both"></div>
 </div>
 </body>
