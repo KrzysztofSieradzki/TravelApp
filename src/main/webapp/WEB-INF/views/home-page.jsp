@@ -92,46 +92,47 @@
 </head>
 <body>
 <jsp:include page="fragments/header.jsp"/>
+<jsp:include page="fragments/aside.jsp"/>
 <div class="container" style="width: 100%; min-width: 100%; margin-right: 0px;
 margin-left: 0px; max-width: 100%;">
-    <div style="float: left; width: 20%">
-    <sec:authorize access="isAuthenticated()">
-    <div class="row" style="margin-top: 40px; margin-bottom: 10px">
-        <div class="col-1"></div>
-        <div class="col-6"><h2>Dodaj miejce</h2></div>
-        <div class="col-5"></div>
-    </div>
+<%--    <div style="float: left; width: 20%">--%>
+<%--    <sec:authorize access="isAuthenticated()">--%>
+<%--    <div class="row" style="margin-top: 40px; margin-bottom: 10px">--%>
+<%--        <div class="col-1"></div>--%>
+<%--        <div class="col-6"><h2>Dodaj miejce</h2></div>--%>
+<%--        <div class="col-5"></div>--%>
+<%--    </div>--%>
 
-    <div class="row">
+<%--    <div class="row">--%>
 
-        <div class="col-8">
+<%--        <div class="col-8">--%>
 
-            <form method="post" action="/add-trip">
-                <div class="form-group">
-                    <label for="target">Nazwa kraju:</label>
-                    <input type="text" required name="target" id="target" class="form-control"
-                           placeholder="Podaj państwo które chcesz zobaczyć"/>
-                </div>
-                <div class="form-group">
-                    <label for="year">Przewidywany rok</label>
-                    <input type= "number" name="year" id="year"
-                              class="form-control"
-                              placeholder="Mój cel na rok :"/>
-                </div>
-                <button class="btn btn-primary" type="submit">Dodaj</button>
-                <button class="btn btn-secondary" type="reset">Wyczyść dane</button>
-                <sec:csrfInput/>
-            </form>
+<%--            <form method="post" action="/add-trip">--%>
+<%--                <div class="form-group">--%>
+<%--                    <label for="target">Nazwa kraju:</label>--%>
+<%--                    <input type="text" required name="target" id="target" class="form-control"--%>
+<%--                           placeholder="Podaj państwo które chcesz zobaczyć"/>--%>
+<%--                </div>--%>
+<%--                <div class="form-group">--%>
+<%--                    <label for="year">Przewidywany rok</label>--%>
+<%--                    <input type= "number" name="year" id="year"--%>
+<%--                              class="form-control"--%>
+<%--                              placeholder="Mój cel na rok :"/>--%>
+<%--                </div>--%>
+<%--                <button class="btn btn-primary" type="submit">Dodaj</button>--%>
+<%--                <button class="btn btn-secondary" type="reset">Wyczyść dane</button>--%>
+<%--                <sec:csrfInput/>--%>
+<%--            </form>--%>
 
 
 
-        </div>
-        <div class="col-2"></div>
-    </div>
-    </sec:authorize>
-    </div>
+<%--        </div>--%>
+<%--        <div class="col-2"></div>--%>
+<%--    </div>--%>
+<%--    </sec:authorize>--%>
+<%--    </div>--%>
 <%--    ==========================================================================--%>
-    <div id="chartdiv" style="float: left; width: 80%; height: 100%; padding: 5px;"></div>
+    <div id="chartdiv" style="float: right; width: 80%; height: 100%; padding: 8px; padding-right: 15px;"></div>
 <%--    ==========================================================================--%>
 <%--    <div style="float: left; width: 20%">--%>
 <%--    <div class="row" style="margin-top: 40px; margin-bottom: 10px">--%>

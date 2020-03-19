@@ -31,7 +31,7 @@
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
             <li>
-               <div style="margin-top: 15px; padding: 5px 15px;color: #f2f2f2;font-size: 12px;">
+               <div style="margin-top: 15px; padding: 5px 15px;color: #f2f2f2;font-size: 18px;">
                    Hello <strong>${pageContext.request.userPrincipal.principal.username}</strong></div>
             </li>
             <li>
