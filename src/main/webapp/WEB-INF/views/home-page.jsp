@@ -85,84 +85,20 @@
     </script>
 </head>
 <body>
-<jsp:include page="fragments/header.jsp"/>
+<section id="container">
+<header><jsp:include page="fragments/header.jsp"/></header>
 <aside><jsp:include page="fragments/aside.jsp"/></aside>
-<div class="container" style="width: 100%; min-width: 100%; margin-right: 0px;
+<section class="main-content" style="width: 100%; min-width: 100%; margin-right: 0px;
 margin-left: 0px; max-width: 100%;">
-<%--    <div style="float: left; width: 20%">--%>
-<%--    <sec:authorize access="isAuthenticated()">--%>
-<%--    <div class="row" style="margin-top: 40px; margin-bottom: 10px">--%>
-<%--        <div class="col-1"></div>--%>
-<%--        <div class="col-6"><h2>Dodaj miejce</h2></div>--%>
-<%--        <div class="col-5"></div>--%>
-<%--    </div>--%>
-
-<%--    <div class="row">--%>
-
-<%--        <div class="col-8">--%>
-
-<%--            <form method="post" action="/add-trip">--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="target">Nazwa kraju:</label>--%>
-<%--                    <input type="text" required name="target" id="target" class="form-control"--%>
-<%--                           placeholder="Podaj państwo które chcesz zobaczyć"/>--%>
-<%--                </div>--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="year">Przewidywany rok</label>--%>
-<%--                    <input type= "number" name="year" id="year"--%>
-<%--                              class="form-control"--%>
-<%--                              placeholder="Mój cel na rok :"/>--%>
-<%--                </div>--%>
-<%--                <button class="btn btn-primary" type="submit">Dodaj</button>--%>
-<%--                <button class="btn btn-secondary" type="reset">Wyczyść dane</button>--%>
-<%--                <sec:csrfInput/>--%>
-<%--            </form>--%>
-
-
-
-<%--        </div>--%>
-<%--        <div class="col-2"></div>--%>
-<%--    </div>--%>
-<%--    </sec:authorize>--%>
-<%--    </div>--%>
 <%--    ==========================================================================--%>
     <div id="chartdiv" style="float: right; width: 80%; height: 100%; padding: 8px; padding-right: 15px;"></div>
 <%--    ==========================================================================--%>
-<%--    <div style="float: left; width: 20%">--%>
-<%--    <div class="row" style="margin-top: 40px; margin-bottom: 10px">--%>
-<%--        <div class="col-1"></div>--%>
-<%--        <div class="col-6"><h2>Moje cele : </h2></div>--%>
-<%--        <div class="col-5"></div>--%>
-<%--    </div>--%>
 
-<%--    <div class="row">--%>
-<%--        <div class="col-12" style="padding-bottom: 20px">--%>
-
-<%--            <table>--%>
-<%--                <thead>--%>
-<%--                <th>Lp.</th>--%>
-<%--                <th>Target</th>--%>
-<%--                <th>Year</th>--%>
-<%--                <th>Voyager</th>--%>
-<%--                </thead>--%>
-<%--                <tbody>--%>
-<%--                <c:forEach items="${trips}" var="trip" varStatus="stat">--%>
-<%--                    <tr>--%>
-<%--                        <td>${stat.count}</td>--%>
-<%--                        <td>${trip.target}</td>--%>
-<%--                        <td>${trip.year}</td>--%>
-<%--                        <td>${trip.user.username}</td>--%>
-<%--                    </tr>--%>
-<%--                </c:forEach>--%>
-<%--                </tbody>--%>
-<%--            </table>--%>
-
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-    <div style="clear: both"></div>
-</div>
-
+</section>
+ <div style="clear: both;"></div>
+    <footer class="site-footer" style="object-position: bottom">
+        <jsp:include page="fragments/footer.jsp"/>
+    </footer>
 <!-- js placed at the end of the document so the pages load faster -->
 <script src="../../static/lib/jquery/jquery.min.js"></script>
 <script src="../../static/lib/bootstrap/js/bootstrap.min.js"></script>
@@ -174,5 +110,6 @@ margin-left: 0px; max-width: 100%;">
 <!--common script for all pages-->
 <script src="../../static/lib/common-scripts.js"></script>
 <!--script for this page-->
+</section>
 </body>
 </html>

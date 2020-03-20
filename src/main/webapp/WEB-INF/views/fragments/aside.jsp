@@ -29,18 +29,18 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="/">
-                    <span>Components</span>
+                <a href="/trip">
+                    <span>Trips</span>
                 </a>
             </li>
             <li class="sub-menu">
                 <a href="/">
-                    <span>Forms</span>
+                    <span>Expenses</span>
                 </a>
             </li>
             <li class="sub-menu">
                 <a href="/">
-                    <span>Data Tables</span>
+                    <span>Equipment</span>
                 </a>
             </li>
         </ul>
