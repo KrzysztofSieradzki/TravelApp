@@ -29,7 +29,7 @@ public class TripController {
         LogggedUserDTO userDTO = userService.getUser(principal.getName());
         List<TripDTO> allTrips = tripService.findAllByUserId(userDTO.getId());
         model.addAttribute("trips",allTrips);
-        return "";
+        return "trip-page";
     }
 
     @PostMapping("/add-trip")

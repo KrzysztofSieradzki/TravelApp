@@ -47,12 +47,12 @@
             polygonSeries.data = [{
                 "id": "US",
                 "name": "United States",
-                "value": 100,
+                // "value": 100,
                 "fill": am4core.color("#F05C5C")
             }, {
                 "id": "FR",
                 "name": "France",
-                "value": 50,
+                // "value": 50,
                 "fill": am4core.color("#5C5CFF")
             }];
 
