@@ -32,42 +32,55 @@
                                  <hr>
                              </div>
                              <div class="icn-main-container">
-                                 <span class="icn-container">+</span>
+                                 <span class="icn-container" style="font-size: 85px;">+</span>
                              </div>
 
                               <form method="post" action="trip/add-trip">
-
+                                  <ul class="pricing">
         <%--                       ====================STATUS=========================--%>
+      <li>
     <div class="form-group">
-        <label for="status">Status:</label>
-        <select name="status" id="status">
+        <label class="control-label col-md-3" for="status" style="text-align: center; width: 100%;">Status</label>
+        <select class="form-control" name="status" id="status">
             <option value="-" selected>--What is the status?--</option>
             <c:forEach items="${status}" var="stat">
                 <option value="${stat}">${stat.status}</option>
             </c:forEach>
         </select>
     </div>
-        <%--                       ====================YEAR=========================--%>
+      </li>
+        <%--                               ====================YEAR=========================--%>
+            <li>
                         <div class="form-group">
-                            <label for="year">Year</label>
-                            <input type= "number" name="year" id="year"
-                                      class="form-control"
-                                      placeholder="Choose a year :"/>
+                            <label class="control-label col-md-3" for="year" style="text-align: center; width: 100%;">Year</label>
+                            <select class="form-control" name="year" id="year">
+                                <option value="-" selected>--Choose the year--</option>
+                                <c:forEach items="${years}" var="year">
+                                <option value="${year}">${year}</option>
+                                </c:forEach>
+                            </select>
                         </div>
+            </li>
 
             <%--                       ====================COUNTRY TO CHOOSE=========================--%>
+            <li>
             <div class="form-group">
-                <label for="id_country">Country:</label>
-                <select name="id_country" id="id_country">
+                <label class="control-label col-md-3" for="id_country" style="text-align: center; width: 100%;">Country</label>
+                <select class="form-control" name="id_country" id="id_country">
                     <option value="-" selected>--Choose the country--</option>
                     <c:forEach items="${countries}" var="country">
                         <option value="${country}">${country.country}</option>
                     </c:forEach>
                 </select>
             </div>
+            </li>
+<%--                        ==================BUTTONS===================--%>
+                                  <br/>
                         <button class="btn btn-theme" type="submit">Add</button>
                         <button class="btn btn-theme02" type="reset">Reset</button>
                         <sec:csrfInput/>
+
+                                  </ul>
                     </form>
                          </div>
                     </div>
@@ -79,7 +92,7 @@
                          <hr>
                      </div>
                      <div class="icn-main-container">
-                         <span class="icn-container">${visited.size()}</span>
+                         <span class="icn-container" style="font-size: 45px;">${visited.size()}</span>
                      </div>
                      <ul class="pricing">
                         <c:forEach items="${visited}" var="visit" varStatus="stat">
@@ -100,10 +113,10 @@
                 <div class="custom-box">
                     <div class="servicetitle">
                         <h4>TO VISIT</h4>
-                        <hr>
+                        <hr>#ad8e03
                     </div>
                     <div class="icn-main-container">
-                        <span class="icn-container">${toVisit.size()}</span>
+                        <span class="icn-container" style="font-size: 45px;">${toVisit.size()}</span>
                     </div>
                     <ul class="pricing">
                         <c:forEach items="${toVisit}" var="toVisit" varStatus="stat">
@@ -113,7 +126,7 @@
                                     <button class="btn btn-round btn-danger btn-xs" type="submit"><i class="fa fa-times"></i> </button>
                                     <input type="hidden" name="tripId" value="${toVisit.id}"/>
                                 </form> </div>
-                                <div style="float: right"><form style="display: inline-block; padding-top: 6px;" method="get" action="/trip/uncheck">
+                                <div style="float: right"><form style="display: inline-block; padding-top: 6px; padding-right: 3px;" method="get" action="/trip/uncheck">
                                     <button class="btn btn-round btn-success btn-xs" type="submit"><i class="fa fa-check"></i> </button>
                                     <input type="hidden" name="tripId" value="${toVisit.id}"/>
                                 </form> </div>
@@ -140,6 +153,8 @@
     <script class="include" type="text/javascript" src="../../static/lib/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../../static/lib/jquery.scrollTo.min.js"></script>
     <script src="../../static/lib/jquery.nicescroll.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../static/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../../static/lib/bootstrap-daterangepicker/date.js"></script>
     <!--common script for all pages-->
     <script src="../../static/lib/common-scripts.js"></script>
     <!--script for this page-->

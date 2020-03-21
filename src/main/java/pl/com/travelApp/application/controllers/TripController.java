@@ -42,6 +42,15 @@ public class TripController {
         return new ArrayList<>(Arrays.asList(Status.values()));
     }
 
+    @ModelAttribute(name="years")
+    public List<Integer> years(){
+        List<Integer> years= new ArrayList<>();
+        for(int i=1930; i<2100; i++){
+            years.add(i);
+        }
+        return years;
+    }
+
     @GetMapping
     public String showTrip(Model model, Principal principal){
         LogggedUserDTO userDTO = userService.getUser(principal.getName());

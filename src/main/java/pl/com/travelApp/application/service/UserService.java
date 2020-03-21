@@ -5,10 +5,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.com.travelApp.application.dto.LogggedUserDTO;
 import pl.com.travelApp.application.dto.RegisterUserDTO;
+import pl.com.travelApp.application.dto.TripDTO;
 import pl.com.travelApp.application.model.entities.User;
+import pl.com.travelApp.application.model.enums.Status;
 import pl.com.travelApp.application.model.repositories.UserRepository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -49,6 +53,21 @@ public class UserService {
             logggedUserDTO.setUsername(user.get().getUsername());
         }
         return logggedUserDTO;
+    }
+
+    public List<TripDTO> findAllTripsByStatus(Long id, Status status){
+        List<TripDTO> list = userRepository.findAllTrips(id).stream()
+                .map(trip->{
+                    TripDTO tripDTO = new TripDTO();
+                    tripDTO.setId(trip.getId());
+                    tripDTO.setYear(trip.getYear());
+                    tripDTO.setUser(trip.getUser());
+                    tripDTO.setStatus(trip.getStatus());
+                    tripDTO.setId_country(trip.getId_country());
+                    return tripDTO;
+                }).filter(t-> t.getStatus()==status).collect(Collectors.toList());
+
+        return list;
     }
 
 

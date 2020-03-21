@@ -44,17 +44,31 @@
             polygonSeries.useGeodata = true;
 
             // Already clicked countries
-            polygonSeries.data = [{
-                "id": "US",
-                "name": "United States",
-                // "value": 100,
-                "fill": am4core.color("#F05C5C")
-            }, {
-                "id": "FR",
-                "name": "France",
-                // "value": 50,
-                "fill": am4core.color("#5C5CFF")
-            }];
+            polygonSeries.data = [
+                <c:forEach items="${visitedCountries}" var="visited">
+                {
+                    "id": "${visited.id_country}",
+                    "name": "${visited.id_country.country}",
+                    "value": "${visited.year}",
+                    "fill": am4core.color("#ad8e03")
+                },
+                </c:forEach>
+                <c:forEach items="${toVisitCountries}" var="toVisit">
+                {
+                    "id": "${toVisit.id_country}",
+                    "name": "${toVisit.id_country.country}",
+                    "value": "${toVisit.year}",
+                    "fill": am4core.color("#c44800")
+                },
+                </c:forEach>
+
+                 {
+                // "id": "VN",
+                // "name": "Viet Nam",
+                // // "value": 50,
+                // "fill": am4core.color("#5C5CFF")
+            }
+            ];
 
 // Configure series
             var polygonTemplate = polygonSeries.mapPolygons.template;
