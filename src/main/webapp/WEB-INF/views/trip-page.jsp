@@ -23,54 +23,109 @@
     <aside><jsp:include page="fragments/aside.jsp"/></aside>
     <section id="main-content" style="min-height: 635px;">
         <section class="wrapper">
+            <div class="row">
+                 <div class="col-lg-12">
+                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                         <div class="custom-box">
+                             <div class="servicetitle">
+                                 <h4>ADD TRIP</h4>
+                                 <hr>
+                             </div>
+                             <div class="icn-main-container">
+                                 <span class="icn-container">+</span>
+                             </div>
 
-            <div style="float: left; width: 40%">
-            <sec:authorize access="isAuthenticated()">
-            <div class="row" style="margin-top: 40px; margin-bottom: 10px">
-                <div class="col-6"><h2>Dodaj miejce</h2></div>
-            </div>
-                    <form method="post" action="trip/add-trip">
+                              <form method="post" action="trip/add-trip">
+
+        <%--                       ====================STATUS=========================--%>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <select name="status" id="status">
+            <option value="-" selected>--What is the status?--</option>
+            <c:forEach items="${status}" var="stat">
+                <option value="${stat}">${stat.status}</option>
+            </c:forEach>
+        </select>
+    </div>
+        <%--                       ====================YEAR=========================--%>
                         <div class="form-group">
-                            <label for="target">Nazwa kraju:</label>
-                            <input type="text" required name="target" id="target" class="form-control"
-                                   placeholder="Podaj państwo które chcesz zobaczyć"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="year">Przewidywany rok</label>
+                            <label for="year">Year</label>
                             <input type= "number" name="year" id="year"
                                       class="form-control"
-                                      placeholder="Mój cel na rok :"/>
+                                      placeholder="Choose a year :"/>
                         </div>
-                        <button class="btn btn-primary" type="submit">Dodaj</button>
-                        <button class="btn btn-secondary" type="reset">Wyczyść dane</button>
+
+            <%--                       ====================COUNTRY TO CHOOSE=========================--%>
+            <div class="form-group">
+                <label for="id_country">Country:</label>
+                <select name="id_country" id="id_country">
+                    <option value="-" selected>--Choose the country--</option>
+                    <c:forEach items="${countries}" var="country">
+                        <option value="${country}">${country.country}</option>
+                    </c:forEach>
+                </select>
+            </div>
+                        <button class="btn btn-theme" type="submit">Add</button>
+                        <button class="btn btn-theme02" type="reset">Reset</button>
                         <sec:csrfInput/>
                     </form>
-                    </sec:authorize>
+                         </div>
                     </div>
-<%--        =================================--%>
-            <div style="float: left; width: 40%">
-            <div class="row" style="margin-top: 40px; margin-bottom: 10px">
-                <div class="col-6"><h2>Moje cele : </h2></div>
-            </div>
-                    <table>
-                        <thead>
-                        <th>Lp.</th>
-                        <th>Target</th>
-                        <th>Year</th>
-                        <th>Voyager</th>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${trips}" var="trip" varStatus="stat">
-                            <tr>
-                                <td>${stat.count}</td>
-                                <td>${trip.target}</td>
-                                <td>${trip.year}</td>
-                                <td>${trip.user.username}</td>
-                            </tr>
+            <%--        =================================--%>
+             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                 <div class="custom-box">
+                     <div class="servicetitle">
+                         <h4>VISITED</h4>
+                         <hr>
+                     </div>
+                     <div class="icn-main-container">
+                         <span class="icn-container">${visited.size()}</span>
+                     </div>
+                     <ul class="pricing">
+                        <c:forEach items="${visited}" var="visit" varStatus="stat">
+                            <li>
+                                   <div style="display: inline-block">${visit.id_country.country} #${visit.year}</div>
+                                      <div style="float: right"><form style="display: inline-block; padding-top: 6px;" method="get" action="/trip/delete">
+                                        <button class="btn btn-round btn-danger btn-xs" type="submit"><i class="fa fa-times"></i> </button>
+                                    <input type="hidden" name="tripId" value="${visit.id}"/>
+                                </form> </div>
+                                <div style="clear: both"></div>
+                            </li>
                         </c:forEach>
-                        </tbody>
-                    </table>
-        </div>
+                     </ul>
+                 </div>
+             </div>
+            <%--        =================================--%>
+             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="custom-box">
+                    <div class="servicetitle">
+                        <h4>TO VISIT</h4>
+                        <hr>
+                    </div>
+                    <div class="icn-main-container">
+                        <span class="icn-container">${toVisit.size()}</span>
+                    </div>
+                    <ul class="pricing">
+                        <c:forEach items="${toVisit}" var="toVisit" varStatus="stat">
+                            <li>
+                                <div style="display: inline-block">${toVisit.id_country.country} #${toVisit.year}</div>
+                                <div style="float: right"><form style="display: inline-block; padding-top: 6px;" method="get" action="/trip/delete">
+                                    <button class="btn btn-round btn-danger btn-xs" type="submit"><i class="fa fa-times"></i> </button>
+                                    <input type="hidden" name="tripId" value="${toVisit.id}"/>
+                                </form> </div>
+                                <div style="float: right"><form style="display: inline-block; padding-top: 6px;" method="get" action="/trip/uncheck">
+                                    <button class="btn btn-round btn-success btn-xs" type="submit"><i class="fa fa-check"></i> </button>
+                                    <input type="hidden" name="tripId" value="${toVisit.id}"/>
+                                </form> </div>
+                                <div style="clear: both"></div>
+
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+            </div>
+            </div>
+                </div>
             </section>
      </section>
     <div style="clear: both;"></div>

@@ -1,7 +1,7 @@
 package pl.com.travelApp.application.model.enums;
 
 public enum Status {
-    VISITED("already done"), TO_DO("I woulde like to see");
+    VISITED("already done"), TO_VISIT("I woulde like to visit");
 
     private String status;
 

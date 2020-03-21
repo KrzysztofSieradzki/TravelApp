@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import pl.com.travelApp.application.dto.TripDTO;
 import pl.com.travelApp.application.model.entities.Trip;
 import pl.com.travelApp.application.model.entities.User;
+import pl.com.travelApp.application.model.enums.Status;
 import pl.com.travelApp.application.model.repositories.TripRepository;
 import pl.com.travelApp.application.model.repositories.UserRepository;
 
@@ -28,7 +29,9 @@ public class TripService {
         Optional<User> user = userRepository.findByUsername(principal.getName());
 
         Trip trip = Trip.builder()
-                .target(tripDTO.getTarget())
+                .id_country(tripDTO.getId_country())
+                .name(tripDTO.getId_country().getCountry())
+                .status(tripDTO.getStatus())
                 .year(tripDTO.getYear())
                 .user(user.get())
                 .build();
@@ -37,15 +40,56 @@ public class TripService {
     }
 
 
-    public List<TripDTO> findAllByUserId(Long id) {
+    public List<TripDTO> findAllTrips(Long id) {
         return tripRepository.findAllByUserId(id).stream().map(trip->{
             TripDTO tripDTO = new TripDTO();
-            tripDTO.setTarget(trip.getTarget());
+            tripDTO.setId(trip.getId());
+            tripDTO.setId_country(trip.getId_country());
+            tripDTO.setStatus(trip.getStatus());
             tripDTO.setYear(trip.getYear());
             tripDTO.setUser(trip.getUser());
             return tripDTO;
         }).collect(Collectors.toList());
     }
 
+    public List<TripDTO> findAllByStatus(Long id, Status status){
+        return tripRepository.findAllByUserId(id).stream()
+                .map(trip->{
+                    TripDTO tripDTO = new TripDTO();
+                    tripDTO.setId(trip.getId());
+                    tripDTO.setId_country(trip.getId_country());
+                    tripDTO.setStatus(trip.getStatus());
+                    tripDTO.setUser(trip.getUser());
+                    tripDTO.setYear(trip.getYear());
+                    return tripDTO;
+                })
+                .filter(tripDTO -> tripDTO.getStatus()==status).collect(Collectors.toList());
+    }
+
+    public void deleteTrip(Long id, Principal principal){
+        Optional<User> user = userRepository.findByUsername(principal.getName());
+        if(user.isPresent()){
+        Optional<Trip> trip = tripRepository.findById(id);
+        trip.ifPresent(tripRepository::delete);
+        }
+    }
+
+    public void uncheckTrip(Long tripId, Long userId) {
+        List<Trip> trips = userRepository.findAllTrips(userId).stream()
+                .filter(trip->
+                        trip.getId().equals(tripId)
+                ).collect(Collectors.toList());
+        for(Trip t : trips){
+            t.setStatus(Status.VISITED);
+            tripRepository.save(t);
+        }
+
+//        Optional<User> user = userRepository.findByUsername(principal.getName());
+//
+//        if (user.isPresent()) {
+//            Optional<Trip> trip = tripRepository.findById(id);
+//            trip.ifPresent(t -> t.setStatus(Status.VISITED));
+//        }
+    }
 
 }
