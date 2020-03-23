@@ -62,12 +62,7 @@
                 },
                 </c:forEach>
 
-                 {
-                // "id": "VN",
-                // "name": "Viet Nam",
-                // // "value": 50,
-                // "fill": am4core.color("#5C5CFF")
-            }
+                 {}
             ];
 
 // Configure series
