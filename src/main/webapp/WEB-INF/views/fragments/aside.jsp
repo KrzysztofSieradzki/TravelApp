@@ -34,8 +34,8 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="/">
-                    <span>Expenses</span>
+                <a href="/country">
+                    <span>Country info</span>
                 </a>
             </li>
             <li class="sub-menu">
