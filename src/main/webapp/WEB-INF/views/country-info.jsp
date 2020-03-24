@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -23,7 +24,46 @@
     <section id="main-content" style="min-height: 635px;">
         <section class="wrapper">
             <div class="row">
-
+                <div class="col-lg-12">
+                <div class="row content-panel" style="max-height: 40%; margin:10px;">
+                    <div class="col-md-4 profile-text mt mb centered right-divider">
+                        <%--                ===========Country to choose==========--%>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="id_country" style="text-align: center; width: 100%;">Country</label>
+                            <select class="form-control" name="id_country" id="id_country">
+                                <option value="-" selected>--Choose the country--</option>
+                                <c:forEach items="${countries}" var="country">
+                                    <option value="${country}">${country.country}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <%--                ===================================--%>
+                    </div>
+                    <!-- /col-md-4 -->
+                    <div class="col-md-4 profile-text">
+                        <h3>Nazwa kraju</h3>
+                        <h6>Kontynent</h6>
+                        <div class="right-divider hidden-sm hidden-xs">
+                            <h4>Eur</h4>
+                            <h6>Currency</h6>
+                            <h4>Ateizm</h4>
+                            <h6>Religia</h6>
+                            <h4>Polski</h4>
+                            <h6>Jezyk</h6>
+                        </div>
+                    </div>
+                    <!-- /col-md-4 -->
+                    <div class="col-md-4 centered">
+                        <div >
+                            <p><img src="../../static/img/Flags/pl.jpg" class="img-thumbnail"></p>
+                            <p>
+                                <button class="btn btn-theme"><i class="fa fa-check"></i> To visit</button>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /col-md-4 -->
+                </div>
+                </div>
             </div>
         </section>
     </section>
@@ -39,8 +79,6 @@
     <script class="include" type="text/javascript" src="../../static/lib/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../../static/lib/jquery.scrollTo.min.js"></script>
     <script src="../../static/lib/jquery.nicescroll.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../../static/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="../../static/lib/bootstrap-daterangepicker/date.js"></script>
     <!--common script for all pages-->
     <script src="../../static/lib/common-scripts.js"></script>
     <!--script for this page-->

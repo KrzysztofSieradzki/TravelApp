@@ -153,8 +153,6 @@
     <script class="include" type="text/javascript" src="../../static/lib/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../../static/lib/jquery.scrollTo.min.js"></script>
     <script src="../../static/lib/jquery.nicescroll.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../../static/lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="../../static/lib/bootstrap-daterangepicker/date.js"></script>
     <!--common script for all pages-->
     <script src="../../static/lib/common-scripts.js"></script>
     <!--script for this page-->
