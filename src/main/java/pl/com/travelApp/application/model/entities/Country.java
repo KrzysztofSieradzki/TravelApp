@@ -17,8 +17,8 @@ import javax.persistence.Table;
 @Table
 public class Country extends EntityBase {
 
-    @Column(unique = true)
-    private String country_code;
+    @Column(unique = true, name = "country_code")
+    private String countryCode;
     @Column(unique = true)
     private String name;
     private String currency;

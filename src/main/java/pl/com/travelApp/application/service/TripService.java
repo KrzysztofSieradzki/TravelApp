@@ -83,13 +83,6 @@ public class TripService {
             t.setStatus(Status.VISITED);
             tripRepository.save(t);
         }
-
-//        Optional<User> user = userRepository.findByUsername(principal.getName());
-//
-//        if (user.isPresent()) {
-//            Optional<Trip> trip = tripRepository.findById(id);
-//            trip.ifPresent(t -> t.setStatus(Status.VISITED));
-//        }
     }
 
 }

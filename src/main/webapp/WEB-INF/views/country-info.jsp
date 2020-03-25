@@ -25,24 +25,35 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                <div class="row content-panel" style="max-height: 40%; margin:10px;">
+                <div class="row content-panel" style="max-height: 45%; margin:10px;">
                     <div class="col-md-4 profile-text mt mb centered right-divider">
                         <%--                ===========Country to choose==========--%>
                         <div class="form-group">
-                            <label class="control-label col-md-3" for="id_country" style="text-align: center; width: 100%;">Country</label>
+                            <form action="/country" method="get">
+                            <label class="control-label col-md-3" for="id_country" style="text-align: center; width: 100%;"><strong>Country</strong></label>
                             <select class="form-control" name="id_country" id="id_country">
                                 <option value="-" selected>--Choose the country--</option>
                                 <c:forEach items="${countries}" var="country">
-                                    <option value="${country}">${country.country}</option>
+                                    <option  value="${country}">${country.country}</option>
                                 </c:forEach>
                             </select>
+                                <br/>
+                                <p>
+                                    <button type="submit" class="btn btn-theme"><i class="fa fa-info"></i> Info</button>
+                                </p>
+                            </form>
                         </div>
+                            <hr>
+
+                            <div class="profile-text">
+                                <h1>Nazwa kraju</h1>
+                                <h4>Kontynent</h4>
+                            </div>
+
                         <%--                ===================================--%>
                     </div>
                     <!-- /col-md-4 -->
                     <div class="col-md-4 profile-text">
-                        <h3>Nazwa kraju</h3>
-                        <h6>Kontynent</h6>
                         <div class="right-divider hidden-sm hidden-xs">
                             <h4>Eur</h4>
                             <h6>Currency</h6>
@@ -55,7 +66,9 @@
                     <!-- /col-md-4 -->
                     <div class="col-md-4 centered">
                         <div >
-                            <p><img src="../../static/img/Flags/pl.jpg" class="img-thumbnail"></p>
+
+                            <p><img src="../../static/img/Flags/${infoAboutCountry.country_code.toLowerCase()}.jpg" class="img-thumbnail"></p>
+
                             <p>
                                 <button class="btn btn-theme"><i class="fa fa-check"></i> To visit</button>
                             </p>
