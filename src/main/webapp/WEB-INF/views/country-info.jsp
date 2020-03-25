@@ -32,7 +32,7 @@
                             <form action="/country" method="get">
                             <label class="control-label col-md-3" for="id_country" style="text-align: center; width: 100%;"><strong>Country</strong></label>
                             <select class="form-control" name="id_country" id="id_country">
-                                <option value="-" selected>--Choose the country--</option>
+                                <option value="domestic" selected>--Choose the country--</option>
                                 <c:forEach items="${countries}" var="country">
                                     <option  value="${country}">${country.country}</option>
                                 </c:forEach>
@@ -46,8 +46,8 @@
                             <hr>
 
                             <div class="profile-text">
-                                <h1>Nazwa kraju</h1>
-                                <h4>Kontynent</h4>
+                                <h1>${infoAboutCountry.name}</h1>
+                                <h4>${infoAboutCountry.continent}</h4>
                             </div>
 
                         <%--                ===================================--%>
