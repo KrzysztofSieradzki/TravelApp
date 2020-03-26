@@ -10,4 +10,8 @@ public class CountryDTO {
     private String currency;
     private String continent;
     private String language;
+    private String politicalSystem;
+    private String capital;
+    private String timeZone;
+    private String religion;
 }

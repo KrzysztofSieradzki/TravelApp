@@ -24,6 +24,10 @@ public class CountryService {
         countryDTO.get().setCurrency(country.get().getCurrency());
         countryDTO.get().setLanguage(country.get().getLanguage());
         countryDTO.get().setName(country.get().getName());
+        countryDTO.get().setCapital(country.get().getCapital());
+        countryDTO.get().setPoliticalSystem(country.get().getPoliticalSystem());
+        countryDTO.get().setTimeZone(country.get().getTimeZone());
+        countryDTO.get().setReligion(country.get().getReligion());
         return countryDTO;
     }
 }

@@ -58,9 +58,9 @@
                             <h4>Eur</h4>
                             <h6>Currency</h6>
                             <h4>Ateizm</h4>
-                            <h6>Religia</h6>
+                            <h6>Dominant religion</h6>
                             <h4>Polski</h4>
-                            <h6>Jezyk</h6>
+                            <h6>Official language</h6>
                         </div>
                     </div>
                     <!-- /col-md-4 -->
