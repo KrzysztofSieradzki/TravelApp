@@ -25,12 +25,13 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                <div class="row content-panel" style="max-height: 45%; margin:10px;">
+<%--                    ====================First panel==================--%>
+                <div class="row content-panel" style="margin:10px;">
                     <div class="col-md-4 profile-text mt mb centered right-divider">
                         <%--                ===========Country to choose==========--%>
                         <div class="form-group">
                             <form action="/country" method="get">
-                            <label class="control-label col-md-3" for="id_country" style="text-align: center; width: 100%;"><strong>Country</strong></label>
+                            <label class="control-label col-md-3" for="id_country" style="text-align: center; width: 100%;"><h4>Country</h4></label>
                             <select class="form-control" name="id_country" id="id_country">
                                 <option value="domestic" selected>--Choose the country--</option>
                                 <c:forEach items="${countries}" var="country">
@@ -41,41 +42,58 @@
                                 <p>
                                     <button type="submit" class="btn btn-theme"><i class="fa fa-info"></i> Info</button>
                                 </p>
+                                <br/>
+                                <p><button class="btn btn-theme03"><i class="fa fa-compass"></i> Add to my list</button></p>
                             </form>
                         </div>
-                            <hr>
-
-                            <div class="profile-text">
-                                <h1>${infoAboutCountry.name}</h1>
-                                <h4>${infoAboutCountry.continent}</h4>
-                            </div>
-
                         <%--                ===================================--%>
                     </div>
-                    <!-- /col-md-4 -->
+                    <%--                ===================================--%>
                     <div class="col-md-4 profile-text">
                         <div class="right-divider hidden-sm hidden-xs">
-                            <h4>Eur</h4>
-                            <h6>Currency</h6>
-                            <h4>Ateizm</h4>
-                            <h6>Dominant religion</h6>
-                            <h4>Polski</h4>
-                            <h6>Official language</h6>
+                            <div class="profile-text">
+                                <h2>${infoAboutCountry.name}</h2>
+                            </div>
+                            <h3>${infoAboutCountry.continent}</h3>
+                            <h5>Continent</h5>
+                            <h3>${infoAboutCountry.capital}</h3>
+                            <h5>Capital</h5>
+                            <h3>${infoAboutCountry.currency}</h3>
+                            <h5>Currency</h5>
                         </div>
                     </div>
-                    <!-- /col-md-4 -->
-                    <div class="col-md-4 centered">
-                        <div >
-
-                            <p><img src="../../static/img/Flags/${infoAboutCountry.country_code.toLowerCase()}.jpg" class="img-thumbnail"></p>
-
-                            <p>
-                                <button class="btn btn-theme"><i class="fa fa-check"></i> To visit</button>
-                            </p>
+                    <%--                ===================================--%>
+                    <div class="col-md-4 profile-text">
+                        <div class="hidden-sm hidden-xs">
+                            <h3>${infoAboutCountry.language}</h3>
+                            <h5>Official language</h5>
+                            <h3>${infoAboutCountry.religion}</h3>
+                            <h5>Dominant religion</h5>
+                            <h3>${infoAboutCountry.politicalSystem}</h3>
+                            <h5>Political system</h5>
+                            <h3>${infoAboutCountry.timeZone}</h3>
+                            <h5>Time zone</h5>
                         </div>
                     </div>
-                    <!-- /col-md-4 -->
+                    <%--                ===================================--%>
                 </div>
+<%--                    ================== SECOND PANEL ===================--%>
+                    <div class="row content-panel" style="margin:10px;">
+                <!-- /col-md-4 -->
+                <div class="col-md-4 centered" style="float: left;">
+                    <div>
+                        <p><img src="../../static/img/Flags/${infoAboutCountry.country_code.toLowerCase()}.jpg" class="img-thumbnail"></p>
+                    </div>
+                </div>
+                <!-- /col-md-4 -->
+
+                <div class="col-md-8 centered" style="float: left;">
+                    <div>
+                        <p><img src="../../static/img/Maps/${infoAboutCountry.country_code.toLowerCase()}.jpg" class="img-thumbnail"></p>
+                    </div>
+                </div>
+                        <div style="clear: both"></div>
+                    </div>
                 </div>
             </div>
         </section>

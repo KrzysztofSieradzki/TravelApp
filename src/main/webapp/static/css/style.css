@@ -126,8 +126,8 @@ a, a:hover, a:focus {
 
 .btn-theme03 {
   color: #fff;
-  background-color: #e0a31f;
-  border-color: #e0a31f;
+  background-color: #bfbd1b;
+  border-color: #bfbd1b;
 }
 .btn-theme03:hover,
 .btn-theme03:focus,
@@ -135,8 +135,8 @@ a, a:hover, a:focus {
 .btn-theme03.active,
 .open .dropdown-toggle.btn-theme03 {
   color: #fff;
-  background-color: #e0a31f;
-  border-color: #e0a31f;
+  background-color: #a8a718;
+  border-color: #a8a718;
 }
 
 .btn-theme04 {
