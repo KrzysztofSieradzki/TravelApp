@@ -42,8 +42,6 @@
                                 <p>
                                     <button type="submit" class="btn btn-theme"><i class="fa fa-info"></i> Info</button>
                                 </p>
-                                <br/>
-                                <p><button class="btn btn-theme03"><i class="fa fa-compass"></i> Add to my list</button></p>
                             </form>
                         </div>
                         <%--                ===================================--%>
@@ -84,6 +82,16 @@
                     <div>
                         <p><img src="../../static/img/Flags/${infoAboutCountry.country_code.toLowerCase()}.jpg" class="img-thumbnail"></p>
                     </div>
+                    <div>
+                        <c:choose>
+                        <c:when test="${checkedTrip.length()>1}">
+                            <p><img style="max-height: 140px;max-width: 140px;" src="../../static/img/${checkedTrip}.jpg" class="img-circle"></p>
+                        </c:when>
+                            <c:otherwise>
+
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
                 </div>
                 <!-- /col-md-4 -->
 
@@ -113,6 +121,7 @@
     <!--common script for all pages-->
     <script src="../../static/lib/common-scripts.js"></script>
     <!--script for this page-->
+
 </section>
 </body>
 </html>

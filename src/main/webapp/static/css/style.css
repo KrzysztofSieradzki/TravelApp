@@ -435,20 +435,36 @@ a.logo {
     float: left;
     margin-top: 15px;
     text-transform: uppercase;
+    background: #22242a;
 }
 
 a.logo b {
     font-weight: 900;
+    background: #22242a;
+}
+a.logo b:hover, a.logo b:focus {
+    color: #e0a31f;
+    background: #22242a;
+}
+
+#linklogo:hover{
+    background: #22242a;
 }
 
 a.logo:hover, a.logo:focus {
-    text-decoration: none;
-    outline: none;
-}
+     text-decoration: none;
+     outline: none;
+    background: #22242a;
+ }
 
 a.logo span {
-    color: #e0a31f;
+     color: #e0a31f;
+ }
+a.logo span:hover, a.logo span:focus{
+    color: #f2f2f2;
+    background: #22242a;
 }
+
 
 
 /*notification*/
