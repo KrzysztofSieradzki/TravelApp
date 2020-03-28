@@ -1,11 +1,18 @@
 package pl.com.travelApp.application.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.com.travelApp.application.dto.LogggedUserDTO;
+import pl.com.travelApp.application.dto.TripDTO;
+import pl.com.travelApp.application.model.enums.Status;
 import pl.com.travelApp.application.service.CountryService;
 import pl.com.travelApp.application.service.TripService;
 import pl.com.travelApp.application.service.UserService;
+
+import java.security.Principal;
+import java.util.List;
 
 @Controller
 @RequestMapping("/profile")
@@ -22,7 +29,12 @@ public class ProfileController {
     }
 
     @GetMapping
-    public String showProfile(){
+    public String showProfile(Principal principal, Model model){
+        LogggedUserDTO userDTO = userService.getUser(principal.getName());
+        List<TripDTO> visited = tripService.findAllByStatus(userDTO.getId(), Status.VISITED);
+        List<TripDTO> toVisit = tripService.findAllByStatus(userDTO.getId(),Status.TO_VISIT);
+        model.addAttribute("visited",visited);
+        model.addAttribute("toVisit",toVisit);
         return "profile-page";
     }
 

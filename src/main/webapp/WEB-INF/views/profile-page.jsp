@@ -24,11 +24,44 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
+                <div class="row content-panel">
+<%--                    ================Stats==========--%>
+                    <div class="col-md-6 detailed">
+                        <h4>Voyager Stats</h4>
+                        <div class="row centered mt mb">
+                            <div class="col-sm-4">
+                                <h1><i class="fa fa-trophy"></i></h1>
+                                <h3>${visited.size()}</h3>
+                                <h6>Completed travel</h6>
+                            </div>
+                            <div class="col-sm-4">
+                                <h1><i class="fa fa-bullseye"></i></h1>
+                                <h3>${toVisit.size()}</h3>
+                                <h6>Travels on my list</h6>
+                            </div>
+                            <div class="col-sm-4">
+                                <h1><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-full"></i></h1>
+                                <h3>Padawan</h3>
+                                <h6>Level</h6>
+                            </div>
+                        </div>
+                    </div>
 
+
+<%--                    ===================--%>
+                      <div class="col-md-6 centered">
+                        <div class="profile-pic">
+                           <p> <img src="../../static/img/domestic-avatar.jpg" class="img-circle" width="200" height="200"> </p>
+                            <h3>${pageContext.request.userPrincipal.principal.username}</h3>
+                            <br>
+                            <button class="btn btn-theme"><i class="fa fa-camera-retro"></i> Change picture</button>
+                        </div>
+                      </div>
+                 </div>
+                </div>
 
 
                 </div>
-            </div>
         </section>
     </section>
         <footer class="site-footer" style="object-position: bottom">
