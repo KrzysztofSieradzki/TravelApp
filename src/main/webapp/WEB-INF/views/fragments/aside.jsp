@@ -21,7 +21,9 @@
     <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu"  id="nav-accordion">
-            <p class="centered"><a href="/"></a></p>
+            <p class="centered"><a href="/profile">
+                <img src="../../static/img/domestic-avatar.jpg" class="img-circle" width="100" height="100">
+            </a></p>
             <h5 class="centered">${pageContext.request.userPrincipal.principal.username}</h5>
             <li class="mt">
                 <a href="/">
