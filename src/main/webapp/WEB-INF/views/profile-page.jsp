@@ -15,6 +15,7 @@
     <!-- Custom styles for this template -->
     <link href="../../static/css/style.css" rel="stylesheet">
     <link href="../../static/css/style-responsive.css" rel="stylesheet">
+    <script src="../../static/lib/chart-master/Chart.js" type="text/javascript"></script>
 </head>
 <body>
 <section id="container">
@@ -41,7 +42,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <h1><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-full"></i></h1>
-                                <h3>Padawan</h3>
+                                <h3>${level}</h3>
                                 <h6>Level</h6>
                             </div>
                         </div>
@@ -58,6 +59,32 @@
                         </div>
                       </div>
                  </div>
+                </div>
+<%--                    =======================Second panel===================--%>
+                <div class="col-lg-12">
+                    <div class="row content-panel">
+                        <div class="col-md-4 mb">
+                            <div class="gold-panel pn">
+                                <div class="gold-header">
+                                    <h5>YOUR PROGRESS</h5>
+                                    <canvas id="serverstatus03" height="120" width="120"></canvas>
+                                    <script>
+                                        var doughnutData = [{
+                                            value: 60,
+                                            color: "#2b2b2b"
+                                        },
+                                            {
+                                                value: 40,
+                                                color: "#fffffd"
+                                            }
+                                        ];
+                                        var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
+                                    </script>
+                                    <h3>60% USED</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 

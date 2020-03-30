@@ -1008,27 +1008,27 @@ PANELS CONFIGURATIONS
 	font-weight: 700;
 }
 
-/*Green Panel*/
-.green-panel {
+/*Gold Panel*/
+.gold-panel {
 	text-align: center;
-	background: #e0a31f;
+	background: #ffe18f;
 }
-.green-panel .green-header {
+.gold-panel .gold-header {
 	background: #e0a31f;
 	padding: 3px;
 	margin-bottom: 15px;
 }
-.green-panel h5 {
-	color: white;
+.gold-panel h5 {
+	color: black;
 	font-weight: 200;
 	margin-top: 10px;
 }
-.green-panel h3 {
-	color: white;
+.gold-panel h3 {
+	color: black;
 	font-weight: 100;
 }
-.green-panel p {
-	color: white;
+.gold-panel p {
+	color: black;
 }
 
 /*White Panel */
