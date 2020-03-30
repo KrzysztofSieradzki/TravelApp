@@ -37,6 +37,15 @@ public class ExperienceService {
         return output;
     }
 
+    public Double progressToGainNextLevel(Principal principal){
+        Integer currentScore = numberOfVisitedCountries(principal);
+        Double currentLevel = (double)yourLevel(currentScore).getLevel();
+        Double nextLevel = (double)nextLevel(currentScore).getLevel();
+        Double percentOfProgress= ((currentScore-currentLevel)*100)/(nextLevel-currentLevel);
+
+        return percentOfProgress;
+    }
+
     public Levels yourLevel(int score){
         Levels[] allLevels = Levels.values();
         for(int i=1; i<=allLevels.length;i++){
@@ -46,9 +55,24 @@ public class ExperienceService {
         return Levels.INDIANA_JONES;
     }
 
+    public Levels nextLevel(int score){
+        Levels[] allLevels = Levels.values();
+        for(int i=1; i<=allLevels.length;i++){
+            if(allLevels[i-1].getLevel()<=score && score<allLevels[i].getLevel())
+                return allLevels[i];
+        }
+        return Levels.INDIANA_JONES;
+    }
+
     public Integer numberOfVisitedCountries(Principal principal){
         Optional<User> user =userRepository.findByUsername(principal.getName());
         List<TripDTO> completedTrips = tripService.findAllByStatus(user.get().getId(), Status.VISITED);
+        return completedTrips.size();
+    }
+
+    public Integer numberOfCountriesToVisit(Principal principal){
+        Optional<User> user =userRepository.findByUsername(principal.getName());
+        List<TripDTO> completedTrips = tripService.findAllByStatus(user.get().getId(), Status.TO_VISIT);
         return completedTrips.size();
     }
 
