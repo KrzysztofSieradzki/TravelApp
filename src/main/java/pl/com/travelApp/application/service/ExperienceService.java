@@ -10,8 +10,8 @@ import pl.com.travelApp.application.model.repositories.TripRepository;
 import pl.com.travelApp.application.model.repositories.UserRepository;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ExperienceService {
@@ -75,5 +75,39 @@ public class ExperienceService {
         List<TripDTO> completedTrips = tripService.findAllByStatus(user.get().getId(), Status.TO_VISIT);
         return completedTrips.size();
     }
+
+    public List<TripDTO> findAllByStatusAndSort(Principal principal, Status status){
+        Long id = userRepository.findByUsername(principal.getName()).get().getId();
+       return tripService.findAllByStatus(id,status).stream().sorted(Comparator.comparing(TripDTO::getYear)).collect(Collectors.toList());
+    }
+
+    public List<Integer> historyVisitedByYears(Principal principal){
+        List<TripDTO> historyOfVisited =  findAllByStatusAndSort(principal,Status.VISITED);
+        List<TripDTO> predictedYears = findAllByStatusAndSort(principal,Status.TO_VISIT);
+        int from = historyOfVisited.get(0).getYear();
+        int to = predictedYears.get(predictedYears.size()-1).getYear();
+        List<Integer> years = new ArrayList<>();
+        for(int i = from; i<=to; i++){
+            years.add(i);
+        }
+        return years;
+    }
+
+    public Map<Integer,Integer> history(Principal principal,Status status){
+        List<TripDTO> listOfTrips =  findAllByStatusAndSort(principal,status);
+        List<Integer> years = historyVisitedByYears(principal);
+        Map<Integer,Integer> dataForHistory= new HashMap<>();
+        for(int i = 0; i<years.size();i++){
+            int count = 0;
+            for(int j=0;j<listOfTrips.size();j++){
+                if(listOfTrips.get(j).getYear().equals(years.get(i))){
+                    count++;
+                }
+            }
+            dataForHistory.put(i,count);
+        }
+        return dataForHistory;
+    }
+
 
 }

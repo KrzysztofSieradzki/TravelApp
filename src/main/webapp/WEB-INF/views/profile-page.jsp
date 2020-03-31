@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Sony
@@ -95,6 +96,48 @@
                                     </script>
                                     <h3>${visited}% Visited</h3>
 
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="content-panel">
+                                <h4><i class="fa fa-bar-chart-o"></i> History</h4>
+                                <div class="panel-body text-center">
+                                    <canvas id="bar" height="200" width="550"></canvas>
+                                    <script>
+                                        var barChartData = {
+                                            labels: [
+                                                <c:forEach items="${years}" var="years">
+                                                "${years}",
+                                                </c:forEach>
+                                                ],
+                                            datasets: [
+
+
+                                                {
+                                                    fillColor: "rgba(48,47,45,0.5)",
+                                                    strokeColor: "rgba(48,47,45,1)",
+                                                    data: [
+                                                        <c:forEach items="${history}" var ="his">
+                                                        ${his.value},
+                                                        </c:forEach>
+                                                    ]
+
+                                                },
+
+                                                {
+                                                    fillColor: "rgba(207,161,37,0.5)",
+                                                    strokeColor: "rgba(207,161,37,1)",
+                                                    data: [
+                                                        <c:forEach items="${predicted}" var ="pred">
+                                                        ${pred.value},
+                                                        </c:forEach>
+                                                    ]
+
+                                                }
+                                            ]};
+                                        new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+                                    </script>
+                                </div>
                             </div>
                         </div>
                     </div>

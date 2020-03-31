@@ -3,6 +3,7 @@ package pl.com.travelApp.application.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.com.travelApp.application.dto.LogggedUserDTO;
 import pl.com.travelApp.application.dto.TripDTO;
@@ -13,7 +14,7 @@ import pl.com.travelApp.application.service.TripService;
 import pl.com.travelApp.application.service.UserService;
 
 import java.security.Principal;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/profile")
@@ -38,6 +39,22 @@ public class ProfileController {
         model.addAttribute("level",level);
         return "profile-page";
     }
+
+    @ModelAttribute(name = "years")
+    public List<Integer> years(Principal principal){
+        return experienceService.historyVisitedByYears(principal);
+    }
+
+
+    @ModelAttribute(name="history")
+    public Map<Integer,Integer> historyOfVisited(Principal principal){
+        return experienceService.history(principal,Status.VISITED);
+    }
+    @ModelAttribute(name="predicted")
+    public Map<Integer,Integer> predictedToVisit(Principal principal){
+        return experienceService.history(principal,Status.TO_VISIT);
+    }
+
 
 
 }
