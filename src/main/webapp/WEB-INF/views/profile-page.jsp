@@ -111,8 +111,6 @@
                                                 </c:forEach>
                                                 ],
                                             datasets: [
-
-
                                                 {
                                                     fillColor: "rgba(48,47,45,0.5)",
                                                     strokeColor: "rgba(48,47,45,1)",
@@ -121,9 +119,7 @@
                                                         ${his.value},
                                                         </c:forEach>
                                                     ]
-
                                                 },
-
                                                 {
                                                     fillColor: "rgba(207,161,37,0.5)",
                                                     strokeColor: "rgba(207,161,37,1)",
@@ -132,7 +128,6 @@
                                                         ${pred.value},
                                                         </c:forEach>
                                                     ]
-
                                                 }
                                             ]};
                                         new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);

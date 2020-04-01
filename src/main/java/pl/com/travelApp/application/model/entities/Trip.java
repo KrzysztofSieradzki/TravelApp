@@ -5,6 +5,7 @@ import pl.com.travelApp.application.model.enums.Countries;
 import pl.com.travelApp.application.model.enums.Status;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 @Getter @Setter @AllArgsConstructor
 @NoArgsConstructor
@@ -27,5 +28,8 @@ public class Trip extends EntityBase {
     private User user;
     @Column(name="user_id", insertable = false, updatable = false)
     private Long userId;
+    @OneToMany(mappedBy = "trip")
+    private List<Equipment> equipmentList;
+
 
 }
