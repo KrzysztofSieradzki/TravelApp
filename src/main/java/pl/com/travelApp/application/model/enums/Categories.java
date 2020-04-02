@@ -1,6 +1,6 @@
 package pl.com.travelApp.application.model.enums;
 
-public enum Category {
+public enum Categories {
     DEVICES("Electronic devices"),
     SPECIAL_CLOTHES("Special clothes"),
     DOCUMENTS("Documents"),
@@ -10,7 +10,7 @@ public enum Category {
 
     private String category;
 
-    Category(String category) {
+    Categories(String category) {
         this.category = category;
     }
 

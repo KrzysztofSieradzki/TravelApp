@@ -1,7 +1,7 @@
 package pl.com.travelApp.application.model.entities;
 
 import lombok.*;
-import pl.com.travelApp.application.model.enums.Category;
+import pl.com.travelApp.application.model.enums.Categories;
 
 import javax.persistence.*;
 
@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "equipment")
 public class Equipment extends EntityBase {
-
+    @Column(nullable = false)
     private String name;
     private Integer quantity;
     private Boolean active;
@@ -22,5 +22,5 @@ public class Equipment extends EntityBase {
     @ManyToOne
     private Trip trip;
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private Categories categories;
 }

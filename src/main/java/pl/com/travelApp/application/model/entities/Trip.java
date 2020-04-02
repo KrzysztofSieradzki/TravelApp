@@ -30,6 +30,8 @@ public class Trip extends EntityBase {
     private Long userId;
     @OneToMany(mappedBy = "trip")
     private List<Equipment> equipmentList;
+    @OneToMany(mappedBy = "trip")
+    private List<Transport> transport;
 
 
 }
