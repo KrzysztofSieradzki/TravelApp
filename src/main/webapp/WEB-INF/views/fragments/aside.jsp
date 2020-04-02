@@ -41,8 +41,8 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="/">
-                    <span>Equipment</span>
+                <a href="/organizer">
+                    <span>Organizer</span>
                 </a>
             </li>
         </ul>
