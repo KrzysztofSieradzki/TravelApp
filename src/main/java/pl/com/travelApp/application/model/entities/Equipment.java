@@ -1,10 +1,9 @@
 package pl.com.travelApp.application.model.entities;
 
 import lombok.*;
+import pl.com.travelApp.application.model.enums.Category;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -22,4 +21,6 @@ public class Equipment extends EntityBase {
     private String description;
     @ManyToOne
     private Trip trip;
+    @Enumerated(EnumType.STRING)
+    private Category category;
 }

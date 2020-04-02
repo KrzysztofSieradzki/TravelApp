@@ -2,6 +2,8 @@ package pl.com.travelApp.application.dto;
 
 import lombok.Data;
 import pl.com.travelApp.application.model.entities.Trip;
+import pl.com.travelApp.application.model.enums.Category;
+
 @Data
 public class EquipmentDTO {
     private String name;
@@ -9,4 +11,5 @@ public class EquipmentDTO {
     private Boolean active;
     private String description;
     private Trip trip;
+    private Category category;
 }
