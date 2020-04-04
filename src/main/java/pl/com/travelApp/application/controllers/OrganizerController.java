@@ -46,17 +46,23 @@ public class OrganizerController {
 
 
     @GetMapping
-    public String getPage(
-            @RequestParam(required = false, defaultValue = "DOMESTIC") TripDTO tripDTO, Model model){
-                model.addAttribute("myTrip",tripDTO);
+    public String getPage(@RequestParam(required = false) Long tripIdNumber, Model model, Principal principal){
+        TripDTO tripDTO;
+        if(tripIdNumber!=null){
+        tripDTO = tripService.findTripById(tripIdNumber, principal);
+        model.addAttribute("myTrip",tripDTO);}
 
         return "organizer-page";
     }
     @PostMapping("/addTransport")
-    public String addTransport(@RequestParam(required = false) Transports transports,
-                               @RequestParam(required = false, defaultValue = "")Long tripId,
-                               Principal principal){
+    public String addTransport(Transports transports,Long tripId,Principal principal){
         organizerService.addTransport(transports,tripId,principal);
-        return "redirect:/organizer";
+        return "redirect:/organizer?tripIdNumber="+tripId;
     }
+//    @GetMapping("/myTrip")
+//    public String chosenTrip(@RequestParam(required = false) Long tripIdNumber, Model model, Principal principal){
+//        TripDTO tripDTO = tripService.findTripById(tripIdNumber, principal);
+//        model.addAttribute("myTrip",tripDTO);
+//        return "redirect:/organizer";
+//    }
 }

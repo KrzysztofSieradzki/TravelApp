@@ -85,4 +85,15 @@ public class TripService {
         }
     }
 
+    public TripDTO findTripById(Long tripId, Principal principal){
+        Optional<User>user = userRepository.findByUsername(principal.getName());
+        Optional<Trip> trip= tripRepository.findByIdAndUserId(tripId,user.get().getId());
+                    TripDTO tripDTO = new TripDTO();
+                    tripDTO.setId(trip.get().getId());
+                    tripDTO.setId_country(trip.get().getId_country());
+                    tripDTO.setStatus(trip.get().getStatus());
+                    tripDTO.setUser(trip.get().getUser());
+                    tripDTO.setYear(trip.get().getYear());
+                    return tripDTO;
+    }
 }

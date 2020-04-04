@@ -27,21 +27,20 @@
             <div class="col-lg-12">
                 <div class="form-group">
                     <form action="/organizer" method="get">
-                        <label class="control-label col-md-3" for="trip" style="text-align: center; width: 100%;"><h4>Country</h4></label>
-                        <select class="form-control" name="trip" id="trip">
+                        <label class="control-label col-md-3" for="tripIdNumber" style="text-align: center; width: 100%;"><h4>Trip</h4></label>
+                        <select class="form-control" name="tripIdNumber" id="tripIdNumber">
                             <option value="domestic" selected>--Choose the trip--</option>
                             <c:forEach items="${trips}" var="trip">
-                                <option value="${trip}" hidden>${trip.id_country.country}</option>
+                                <option value="${trip.id}">${trip.id_country.country}</option>
                             </c:forEach>
                         </select>
                         <br/>
-                        <p>
                             <button type="submit" class="btn btn-theme"><i class="fa fa-pencil-square-o"></i> Organize</button>
-                            <span><h2>${myTrip.id_country.country}</h2></span>
-                        </p>
+                            <div class="centered"><h1>${myTrip.id_country.country}</h1></div>
                     </form>
                 </div>
                 <div class="row content-panel">
+
 <%--                    ============== NAVIGATION ==============--%>
                     <div class="panel-heading">
                         <ul class="nav nav-tabs nav-justified">
@@ -76,18 +75,15 @@
                                 <div>
                                     <div class="col-md-8 mb">
                                         <div class="message-header">
-                                            <h5>MAIN TRANSPORT</h5>
+                                            <h5>Choose transport from which you will have to use</h5>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3 centered hidden-sm hidden-xs">
 
                                             </div>
                                             <div class="col-md-9">
-                                                <p><strong>
-                                                    Choose your transport to final destination
-                                                </strong></p>
                                                 <form action="/organizer/addTransport" method="post">
-                                                    <label class="control-label col-md-3" for="transports" style="text-align: center; width: 100%;"><h4>Transport</h4></label>
+                                                    <label class="control-label col-md-3" for="transports" style="text-align: center; width: 100%;"><h4>Vehicle</h4></label>
                                                     <select class="form-control" name="transports" id="transports">
                                                         <option value="domestic" selected>--Choose the transport--</option>
                                                         <c:forEach items="${transports}" var="transport">
