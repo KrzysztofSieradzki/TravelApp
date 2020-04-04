@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link href="../../static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +25,22 @@
     <section class="wrapper">
         <div class="row">
             <div class="col-lg-12">
+                <div class="form-group">
+                    <form action="/organizer" method="get">
+                        <label class="control-label col-md-3" for="trip" style="text-align: center; width: 100%;"><h4>Country</h4></label>
+                        <select class="form-control" name="trip" id="trip">
+                            <option value="domestic" selected>--Choose the trip--</option>
+                            <c:forEach items="${trips}" var="trip">
+                                <option value="${trip}" hidden>${trip.id_country.country}</option>
+                            </c:forEach>
+                        </select>
+                        <br/>
+                        <p>
+                            <button type="submit" class="btn btn-theme"><i class="fa fa-pencil-square-o"></i> Organize</button>
+                            <span><h2>${myTrip.id_country.country}</h2></span>
+                        </p>
+                    </form>
+                </div>
                 <div class="row content-panel">
 <%--                    ============== NAVIGATION ==============--%>
                     <div class="panel-heading">
@@ -41,6 +58,9 @@
                                 <a data-toggle="tab" href="#cloths">Special cloths</a>
                             </li>
                             <li>
+                                <a data-toggle="tab" href="#other">Other</a>
+                            </li>
+                            <li>
                                 <a data-toggle="tab" href="#summary">Check</a>
                             </li>
                         </ul>
@@ -50,23 +70,87 @@
                 <div class="tab-content">
 <%--                   ===============TRANSPORT===============--%>
                     <div id="transport" class="tab-pane active">
-                        transport
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2 detailed">
+                                <h4 class="mb">All transports</h4>
+                                <div>
+                                    <div class="col-md-8 mb">
+                                        <div class="message-header">
+                                            <h5>MAIN TRANSPORT</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3 centered hidden-sm hidden-xs">
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                <p><strong>
+                                                    Choose your transport to final destination
+                                                </strong></p>
+                                                <form action="/organizer/addTransport" method="post">
+                                                    <label class="control-label col-md-3" for="transports" style="text-align: center; width: 100%;"><h4>Transport</h4></label>
+                                                    <select class="form-control" name="transports" id="transports">
+                                                        <option value="domestic" selected>--Choose the transport--</option>
+                                                        <c:forEach items="${transports}" var="transport">
+                                                            <option  value="${transport}">${transport.name()}</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                    <input type="hidden" id="tripId" name="tripId" value="${myTrip.id}">
+                                                    <br/>
+                                                    <p>
+                                                        <button type="submit" class="btn btn-theme"><i class="fa fa-fighter-jet"></i> Add</button>
+                                                    </p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 <%--                  ==================DEVICES================--%>
                     <div id="devices" class="tab-pane">
-                        devices
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2 detailed">
+                                <h4 class="mb">Electronic devices</h4>
+
+                            </div>
+                        </div>
                     </div>
     <%--               ==================DOCUMENTS================--%>
                     <div id="documents" class="tab-pane">
-                        documents
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2 detailed">
+                                <h4 class="mb">Documents</h4>
+
+                            </div>
+                        </div>
                     </div>
     <%--              ==================CLOTHS================--%>
                         <div id="cloths" class="tab-pane">
-                            cloths
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2 detailed">
+                                    <h4 class="mb">Special clothes</h4>
+
+                                </div>
+                            </div>
+                        </div>
+    <%--              ==================OTHER================--%>
+                        <div id="other" class="tab-pane">
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2 detailed">
+                                    <h4 class="mb">Other</h4>
+
+                                </div>
+                            </div>
                         </div>
 <%--                  ==================SUMMARY================---%>
                         <div id="summary" class="tab-pane">
-                            summary
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2 detailed">
+                                    <h4 class="mb">Summary</h4>
+
+                                </div>
+                            </div>
                         </div>
                 </div>
             </div>
