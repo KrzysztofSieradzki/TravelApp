@@ -14,7 +14,9 @@ import pl.com.travelApp.application.model.repositories.TripRepository;
 import pl.com.travelApp.application.model.repositories.UserRepository;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OrganizerService {
@@ -39,5 +41,16 @@ public class OrganizerService {
                 .trip(trip.get())
                 .transports(transports).build();
         transportRepository.save(transport);
+    }
+
+    public List<TransportDTO> allAddedTransport(Long idTrip) {
+        return transportRepository.findAllByTripId(idTrip).stream()
+                .map(transport->{
+            TransportDTO transportDTO = new TransportDTO();
+            transportDTO.setTransports(transport.getTransports());
+            transportDTO.setCost(transport.getCost());
+            transportDTO.setTrip(transport.getTrip());
+            return transportDTO;
+        }).collect(Collectors.toList());
     }
 }

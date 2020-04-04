@@ -3,6 +3,7 @@ package pl.com.travelApp.application.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.com.travelApp.application.dto.TransportDTO;
 import pl.com.travelApp.application.dto.TripDTO;
 import pl.com.travelApp.application.model.enums.Categories;
 import pl.com.travelApp.application.model.enums.Transports;
@@ -44,13 +45,16 @@ public class OrganizerController {
         return new ArrayList<>(Arrays.asList(Categories.values()));
     }
 
-
     @GetMapping
     public String getPage(@RequestParam(required = false) Long tripIdNumber, Model model, Principal principal){
         TripDTO tripDTO;
         if(tripIdNumber!=null){
         tripDTO = tripService.findTripById(tripIdNumber, principal);
-        model.addAttribute("myTrip",tripDTO);}
+        model.addAttribute("myTrip",tripDTO);
+            List<TransportDTO> transportDTO = organizerService.allAddedTransport(tripDTO.getId());
+            if(transportDTO.size()>0){
+            model.addAttribute("addedTransports",transportDTO);}
+        }
 
         return "organizer-page";
     }
@@ -59,10 +63,5 @@ public class OrganizerController {
         organizerService.addTransport(transports,tripId,principal);
         return "redirect:/organizer?tripIdNumber="+tripId;
     }
-//    @GetMapping("/myTrip")
-//    public String chosenTrip(@RequestParam(required = false) Long tripIdNumber, Model model, Principal principal){
-//        TripDTO tripDTO = tripService.findTripById(tripIdNumber, principal);
-//        model.addAttribute("myTrip",tripDTO);
-//        return "redirect:/organizer";
-//    }
+
 }

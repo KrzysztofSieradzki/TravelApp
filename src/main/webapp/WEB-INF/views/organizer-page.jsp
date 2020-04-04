@@ -73,15 +73,12 @@
                             <div class="col-lg-8 col-lg-offset-2 detailed">
                                 <h4 class="mb">All transports</h4>
                                 <div>
-                                    <div class="col-md-8 mb">
-                                        <div class="message-header">
+
+                                        <div class="message-header centered">
                                             <h5>Choose transport from which you will have to use</h5>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-3 centered hidden-sm hidden-xs">
-
-                                            </div>
-                                            <div class="col-md-9">
+                                            <div class="col-md-6">
                                                 <form action="/organizer/addTransport" method="post">
                                                     <label class="control-label col-md-3" for="transports" style="text-align: center; width: 100%;"><h4>Vehicle</h4></label>
                                                     <select class="form-control" name="transports" id="transports">
@@ -97,8 +94,21 @@
                                                     </p>
                                                 </form>
                                             </div>
+                                            <div class="col-md-6">
+                                                <h4>Summary</h4>
+                                                <div class="row centered mt mb">
+                                                    <ul class="pricing">
+                                                        <c:forEach items="${addedTransports}" var="addedTr">
+                                                            <li>
+                                                                <div style="display: inline-block">${addedTr.transports}</div>
+                                                            </li>
+                                                        </c:forEach>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
