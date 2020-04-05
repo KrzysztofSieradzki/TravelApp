@@ -144,12 +144,13 @@
                                             <form action="/organizer/addDevice" method="post">
                                                 <label class="control-label col-md-3" for="device" style="text-align: center; width: 100%;"><h4>Gadgets</h4></label>
                                                 <select class="form-control" name="device" id="device">
-                                                    <option value="domestic" selected>--Choose the transport--</option>
+                                                    <option value="domestic" selected>--Choose the device--</option>
                                                     <c:forEach items="${devices}" var="device">
                                                         <option  value="${device}">${device.devices}</option>
                                                     </c:forEach>
                                                 </select>
                                                 <input type="hidden"  name="tripId" value="${myTrip.id}">
+                                                <input type="hidden"  name="cathegory" value="${category_device}">
                                                 <br/>
                                                 <p>
                                                     <button type="submit" class="btn btn-theme"><i class="fa fa-laptop"></i> Add</button>
@@ -198,7 +199,25 @@
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2 detailed">
                                 <h4 class="mb">Documents</h4>
-
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form action="/organizer/addDocument" method="post">
+                                            <label class="control-label col-md-3" for="document" style="text-align: center; width: 100%;"><h4>What do you need?</h4></label>
+                                            <select class="form-control" name="document" id="document">
+                                                <option value="domestic" selected>--Choose the document--</option>
+                                                <c:forEach items="${documents}" var="doc">
+                                                    <option  value="${doc}">${doc.documents}</option>
+                                                </c:forEach>
+                                            </select>
+                                            <input type="hidden"  name="tripId" value="${myTrip.id}">
+                                            <input type="hidden"  name="cathegory" value="${category_document}">
+                                            <br/>
+                                            <p>
+                                                <button type="submit" class="btn btn-theme"><i class="fa fa-id-badge"></i> Add</button>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -207,7 +226,25 @@
                             <div class="row">
                                 <div class="col-lg-8 col-lg-offset-2 detailed">
                                     <h4 class="mb">Special clothes</h4>
-
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form action="/organizer/addCloth" method="post">
+                                                <label class="control-label col-md-3" for="cloth" style="text-align: center; width: 100%;"><h4>What do you need?</h4></label>
+                                                <select class="form-control" name="cloth" id="cloth">
+                                                    <option value="domestic" selected>--Choose the special cloth--</option>
+                                                    <c:forEach items="${clothes}" var="cloth">
+                                                        <option  value="${cloth}">${cloth.clothes}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <input type="hidden"  name="tripId" value="${myTrip.id}">
+                                                <input type="hidden"  name="cathegory" value="${category_cloth}">
+                                                <br/>
+                                                <p>
+                                                    <button type="submit" class="btn btn-theme"><i class="fa fa-suitcase"></i> Add</button>
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -216,7 +253,25 @@
                             <div class="row">
                                 <div class="col-lg-8 col-lg-offset-2 detailed">
                                     <h4 class="mb">Other</h4>
-
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form action="/organizer/addOther" method="post">
+                                                <label class="control-label col-md-3" for="others" style="text-align: center; width: 100%;"><h4>What do you need?</h4></label>
+                                                <select class="form-control" name="others" id="others">
+                                                    <option value="domestic" selected>--Choose other stuffs--</option>
+                                                    <c:forEach items="${other}" var="other">
+                                                        <option  value="${other}">${other.other}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <input type="hidden"  name="tripId" value="${myTrip.id}">
+                                                <input type="hidden"  name="cathegory" value="${category_other}">
+                                                <br/>
+                                                <p>
+                                                    <button type="submit" class="btn btn-theme"><i class="fa fa-umbrella"></i> Add</button>
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

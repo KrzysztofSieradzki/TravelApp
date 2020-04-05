@@ -55,7 +55,14 @@ public class OrganizerController {
         return new ArrayList<>(Arrays.asList(Other.values()));
     }
 
-
+    @ModelAttribute("category_device")
+    public Categories categoryDevice(){return Categories.DEVICES;}
+    @ModelAttribute("category_cloth")
+    public Categories categoryCLoth(){return Categories.SPECIAL_CLOTHES;}
+    @ModelAttribute("category_document")
+    public Categories categoryDocument(){return Categories.DOCUMENTS;}
+    @ModelAttribute("category_other")
+    public Categories categoryOther(){return Categories.OTHER;}
 
     @GetMapping
     public String getPage(@RequestParam(required = false) Long tripIdNumber, Model model, Principal principal){
@@ -84,6 +91,9 @@ public class OrganizerController {
 
     @PostMapping("/cost")
     public String setUpCost(Double cost, Long idTransport, Long tripId){
+        if(tripId==null|| tripId==-1){
+            return "organizer-page";
+        }
         organizerService.setUpCost(idTransport,cost);
         return "redirect:/organizer?tripIdNumber="+tripId;
     }
