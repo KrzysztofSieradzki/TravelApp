@@ -5,8 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.com.travelApp.application.dto.TransportDTO;
 import pl.com.travelApp.application.dto.TripDTO;
-import pl.com.travelApp.application.model.enums.Categories;
-import pl.com.travelApp.application.model.enums.Transports;
+import pl.com.travelApp.application.model.enums.*;
 import pl.com.travelApp.application.service.OrganizerService;
 import pl.com.travelApp.application.service.TripService;
 import pl.com.travelApp.application.service.UserService;
@@ -40,10 +39,23 @@ public class OrganizerController {
         return new ArrayList<>(Arrays.asList(Transports.values()));
     }
 
-    @ModelAttribute(name="categories")
-    public List<Categories> categories(){
-        return new ArrayList<>(Arrays.asList(Categories.values()));
+    @ModelAttribute(name="devices")
+    public List<Devices> devices(){ return new ArrayList<>(Arrays.asList(Devices.values()));}
+
+    @ModelAttribute(name="clothes")
+    public List<Clothes> clothes(){ return new ArrayList<>(Arrays.asList(Clothes.values()));}
+
+    @ModelAttribute(name="documents")
+    public List<Documents> documents(){
+        return new ArrayList<>(Arrays.asList(Documents.values()));
     }
+
+    @ModelAttribute(name="other")
+    public List<Other> others(){
+        return new ArrayList<>(Arrays.asList(Other.values()));
+    }
+
+
 
     @GetMapping
     public String getPage(@RequestParam(required = false) Long tripIdNumber, Model model, Principal principal){
