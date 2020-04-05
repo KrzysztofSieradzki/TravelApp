@@ -54,7 +54,7 @@
                                 <a data-toggle="tab" href="#documents">Documents</a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#cloths">Special cloths</a>
+                                <a data-toggle="tab" href="#clothes">Special clothes</a>
                             </li>
                             <li>
                                 <a data-toggle="tab" href="#other">Other</a>
@@ -73,7 +73,6 @@
                             <div class="col-lg-8 col-lg-offset-2 detailed">
                                 <h4 class="mb">All transports</h4>
                                 <div>
-
                                         <div class="message-header centered">
                                             <h5>Choose transport from which you will have to use</h5>
                                         </div>
@@ -149,8 +148,8 @@
                             </div>
                         </div>
                     </div>
-    <%--              ==================CLOTHS================--%>
-                        <div id="cloths" class="tab-pane">
+    <%--              ==================CLOTHES================--%>
+                        <div id="clothes" class="tab-pane">
                             <div class="row">
                                 <div class="col-lg-8 col-lg-offset-2 detailed">
                                     <h4 class="mb">Special clothes</h4>

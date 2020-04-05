@@ -4,8 +4,6 @@ public enum Categories {
     DEVICES("Electronic devices"),
     SPECIAL_CLOTHES("Special clothes"),
     DOCUMENTS("Documents"),
-    MEDICINES("Medicines"),
-    COSMETICS("Cosmetics"),
     OTHER("Other");
 
     private String category;

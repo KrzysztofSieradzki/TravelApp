@@ -2,18 +2,28 @@ package pl.com.travelApp.application.model.enums;
 
 
 public enum Devices {
-    CAMERA ,
-    TRIPOD,
-    MEMORY_CARD,
-    SMARTPHONE,
-    SMARTWATCH,
-    CHARGER,
-    SELFIE_STICK,
-    FLASHLIGHT,
-    HEADPHONES,
-    LAPTOP,
-    MP3,
-    GPS,
-    E_READER,
-    OTHER,
+    CAMERA("Camera"),
+    TRIPOD("Tripod"),
+    MEMORY_CARD("Memory card"),
+    SMARTPHONE("SMartphone"),
+    SMARTWATCH("Smartwatch"),
+    CHARGER("Charger"),
+    SELFIE_STICK("Selfie stick"),
+    FLASHLIGHT("Flashlight"),
+    HEADPHONES("Headphones"),
+    LAPTOP("Laptop"),
+    MP3("Mp3"),
+    GPS("GPS"),
+    E_READER("E-reader"),
+    OTHER("Other");
+
+    private String devices;
+
+    public String getDevices() {
+        return devices;
+    }
+
+    Devices(String devices) {
+        this.devices = devices;
+    }
 }
