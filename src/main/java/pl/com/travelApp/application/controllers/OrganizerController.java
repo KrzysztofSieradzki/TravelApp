@@ -61,6 +61,9 @@ public class OrganizerController {
     public String getPage(@RequestParam(required = false) Long tripIdNumber, Model model, Principal principal){
         TripDTO tripDTO;
         if(tripIdNumber!=null){
+            if(tripIdNumber==-1){
+                return "organizer-page";
+            }
         tripDTO = tripService.findTripById(tripIdNumber, principal);
         model.addAttribute("myTrip",tripDTO);
             List<TransportDTO> transportDTO = organizerService.allAddedTransport(tripDTO.getId());
@@ -72,6 +75,9 @@ public class OrganizerController {
     }
     @PostMapping("/addTransport")
     public String addTransport(Transports transports,Long tripId,Principal principal){
+        if(tripId==null|| tripId==-1){
+            return "organizer-page";
+        }
         organizerService.addTransport(transports,tripId,principal);
         return "redirect:/organizer?tripIdNumber="+tripId;
     }

@@ -29,7 +29,7 @@
                     <form action="/organizer" method="get">
                         <label class="control-label col-md-3" for="tripIdNumber" style="text-align: center; width: 100%;"><h4>Trip</h4></label>
                         <select class="form-control" name="tripIdNumber" id="tripIdNumber">
-                            <option value="domestic" selected>--Choose the trip--</option>
+                            <option value="-1" selected>--Choose the trip--</option>
                             <c:forEach items="${trips}" var="trip">
                                 <option value="${trip.id}">${trip.id_country.country}</option>
                             </c:forEach>
@@ -135,7 +135,61 @@
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2 detailed">
                                 <h4 class="mb">Electronic devices</h4>
+                                <div>
+                                    <div class="message-header centered">
+                                        <h5>Choose devices which you would like to have during your trip</h5>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form action="/organizer/addDevice" method="post">
+                                                <label class="control-label col-md-3" for="device" style="text-align: center; width: 100%;"><h4>Gadgets</h4></label>
+                                                <select class="form-control" name="device" id="device">
+                                                    <option value="domestic" selected>--Choose the transport--</option>
+                                                    <c:forEach items="${devices}" var="device">
+                                                        <option  value="${device}">${device.devices}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <input type="hidden"  name="tripId" value="${myTrip.id}">
+                                                <br/>
+                                                <p>
+                                                    <button type="submit" class="btn btn-theme"><i class="fa fa-laptop"></i> Add</button>
+                                                </p>
+                                            </form>
+                                        </div>
+<%--                                        <div class="col-md-6">--%>
+<%--                                            <h4>Summary</h4>--%>
+<%--                                            <div class="row centered mt mb">--%>
+<%--                                                <ul class="pricing">--%>
+<%--                                                    <c:forEach items="${addedTransports}" var="addedTr">--%>
+<%--                                                        <li style="width: 100%;">--%>
+<%--                                                            <div style="display: inline-block;">--%>
+<%--                                                                <h3>${addedTr.transports}</h3>--%>
+<%--                                                                <c:choose>--%>
+<%--                                                                    <c:when test="${addedTr.cost==null}">--%>
+<%--                                                                        <h5>no amount declared</h5>--%>
+<%--                                                                    </c:when>--%>
+<%--                                                                    <c:otherwise>--%>
+<%--                                                                        ${addedTr.cost}--%>
+<%--                                                                    </c:otherwise>--%>
+<%--                                                                </c:choose>--%>
+<%--                                                            </div>--%>
+<%--                                                            <div style="float: right"> <form action="/organizer/cost" method="post">--%>
+<%--                                                                <label for ="cost"> Cost </label>--%>
+<%--                                                                <input type="number" name="cost" id="cost" class="form-control" placeholder="Cost of transpot"/>--%>
+<%--                                                                <input type="hidden" value="${addedTr.id}" name="idTransport"/>--%>
+<%--                                                                <input type="hidden"  name="tripId" value="${myTrip.id}">--%>
+<%--                                                                <button style="margin-top: 3px;" class="btn btn-round btn-success btn-xs" type="submit">Set up</button>--%>
+<%--                                                            </form></div>--%>
+<%--                                                            <div style="clear: both"></div>--%>
+<%--                                                        </li>--%>
+<%--                                                    </c:forEach>--%>
+<%--                                                </ul>--%>
+<%--                                            </div>--%>
+<%--                                        </div>--%>
 
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
