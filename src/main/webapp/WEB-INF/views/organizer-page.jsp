@@ -99,8 +99,26 @@
                                                 <div class="row centered mt mb">
                                                     <ul class="pricing">
                                                         <c:forEach items="${addedTransports}" var="addedTr">
-                                                            <li>
-                                                                <div style="display: inline-block">${addedTr.transports}</div>
+                                                            <li style="width: 100%;">
+                                                                <div style="display: inline-block;">
+                                                                    <h3>${addedTr.transports}</h3>
+                                                                        <c:choose>
+                                                                            <c:when test="${addedTr.cost==null}">
+                                                                                <h5>no amount declared</h5>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                ${addedTr.cost}
+                                                                            </c:otherwise>
+                                                                        </c:choose>
+                                                                </div>
+                                                                <div style="float: right"> <form action="/organizer/cost" method="post">
+                                                                    <label for ="cost"> Cost </label>
+                                                                    <input type="number" name="cost" id="cost" class="form-control" placeholder="Cost of transpot"/>
+                                                                    <input type="hidden" value="${addedTr.id}" name="idTransport"/>
+                                                                    <input type="hidden"  name="tripId" value="${myTrip.id}">
+                                                                    <button style="margin-top: 3px;" class="btn btn-round btn-success btn-xs" type="submit">Set up</button>
+                                                                </form></div>
+                                                                <div style="clear: both"></div>
                                                             </li>
                                                         </c:forEach>
                                                     </ul>

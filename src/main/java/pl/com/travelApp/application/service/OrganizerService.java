@@ -47,10 +47,17 @@ public class OrganizerService {
         return transportRepository.findAllByTripId(idTrip).stream()
                 .map(transport->{
             TransportDTO transportDTO = new TransportDTO();
+            transportDTO.setId(transport.getId());
             transportDTO.setTransports(transport.getTransports());
             transportDTO.setCost(transport.getCost());
             transportDTO.setTrip(transport.getTrip());
             return transportDTO;
         }).collect(Collectors.toList());
+    }
+
+    public void setUpCost(Long idTransport, Double cost){
+        Transport transport = transportRepository.getOne(idTransport);
+        transport.setCost(cost);
+        transportRepository.save(transport);
     }
 }

@@ -6,6 +6,7 @@ import pl.com.travelApp.application.model.enums.Transports;
 
 @Data
 public class TransportDTO {
+    private Long id;
     private Transports transports;
     private Double cost;
     private Trip trip;

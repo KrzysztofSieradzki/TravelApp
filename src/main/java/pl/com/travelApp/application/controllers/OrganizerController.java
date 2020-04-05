@@ -64,4 +64,10 @@ public class OrganizerController {
         return "redirect:/organizer?tripIdNumber="+tripId;
     }
 
+    @PostMapping("/cost")
+    public String setUpCost(Double cost, Long idTransport, Long tripId){
+        organizerService.setUpCost(idTransport,cost);
+        return "redirect:/organizer?tripIdNumber="+tripId;
+    }
+
 }
