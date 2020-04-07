@@ -2,11 +2,15 @@ package pl.com.travelApp.application.service;
 
 
 import org.springframework.stereotype.Service;
+import pl.com.travelApp.application.dto.EquipmentDTO;
 import pl.com.travelApp.application.dto.TransportDTO;
 import pl.com.travelApp.application.dto.TripDTO;
+import pl.com.travelApp.application.model.entities.Equipment;
 import pl.com.travelApp.application.model.entities.Transport;
 import pl.com.travelApp.application.model.entities.Trip;
 import pl.com.travelApp.application.model.entities.User;
+import pl.com.travelApp.application.model.enums.Categories;
+import pl.com.travelApp.application.model.enums.Devices;
 import pl.com.travelApp.application.model.enums.Transports;
 import pl.com.travelApp.application.model.repositories.EquipmentRepository;
 import pl.com.travelApp.application.model.repositories.TransportRepository;
@@ -43,6 +47,18 @@ public class OrganizerService {
         transportRepository.save(transport);
     }
 
+    public void addEquipment(String name, Long idTrip, Categories category, Principal principal){
+        Optional<User> user = userRepository.findByUsername(principal.getName());
+        Optional<Trip> trip = tripRepository.findByIdAndUserId(idTrip,user.get().getId());
+
+        Equipment equipment = Equipment.builder()
+                .categories(category)
+                .name(name)
+                .trip(trip.get())
+                .build();
+        equipmentRepository.save(equipment);
+    }
+
     public List<TransportDTO> allAddedTransport(Long idTrip) {
         return transportRepository.findAllByTripId(idTrip).stream()
                 .map(transport->{
@@ -55,9 +71,32 @@ public class OrganizerService {
         }).collect(Collectors.toList());
     }
 
+    public List<EquipmentDTO> allAddedEquipmentsByCategory(Long idTrip,Categories categories){
+        return equipmentRepository.findAllByTripId(idTrip).stream()
+                .map(equipment -> {
+                    EquipmentDTO equipmentDTO = new EquipmentDTO();
+                    equipmentDTO.setId(equipment.getId());
+                    equipmentDTO.setCategories(equipment.getCategories());
+                    equipmentDTO.setActive(equipment.getActive());
+                    equipmentDTO.setDescription(equipment.getDescription());
+                    equipmentDTO.setName(equipment.getName());
+                    equipmentDTO.setTrip(equipment.getTrip());
+                    equipmentDTO.setQuantity(equipment.getQuantity());
+                    return equipmentDTO;
+                }).filter(equipmentDTO -> equipmentDTO.getCategories().equals(categories)).collect(Collectors.toList());
+    }
+
     public void setUpCost(Long idTransport, Double cost){
         Transport transport = transportRepository.getOne(idTransport);
         transport.setCost(cost);
         transportRepository.save(transport);
+    }
+
+    public void setUpDetails(Long idEquipment, Integer quantity, String description, Boolean active){
+        Equipment equipment = equipmentRepository.getOne(idEquipment);
+        equipment.setActive(active);
+        equipment.setDescription(description);
+        equipment.setQuantity(quantity);
+        equipmentRepository.save(equipment);
     }
 }

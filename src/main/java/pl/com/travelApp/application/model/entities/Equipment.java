@@ -19,10 +19,13 @@ public class Equipment extends EntityBase {
     private Integer quantity;
     private Boolean active;
     private String description;
-    @ManyToOne
-    private Trip trip;
     @Enumerated(EnumType.STRING)
     private Categories categories;
+    @ManyToOne
+    @JoinColumn(name="trip_id")
+    private Trip trip;
+    @Column(name="trip_id", insertable = false, updatable = false)
+    private Long tripId;
 
     @Override
     public boolean equals(Object o) {

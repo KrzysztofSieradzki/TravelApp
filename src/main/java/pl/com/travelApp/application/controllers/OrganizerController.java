@@ -3,6 +3,7 @@ package pl.com.travelApp.application.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.com.travelApp.application.dto.EquipmentDTO;
 import pl.com.travelApp.application.dto.TransportDTO;
 import pl.com.travelApp.application.dto.TripDTO;
 import pl.com.travelApp.application.model.enums.*;
@@ -74,8 +75,18 @@ public class OrganizerController {
         tripDTO = tripService.findTripById(tripIdNumber, principal);
         model.addAttribute("myTrip",tripDTO);
             List<TransportDTO> transportDTO = organizerService.allAddedTransport(tripDTO.getId());
+            List<EquipmentDTO> devices = organizerService.allAddedEquipmentsByCategory(tripDTO.getId(),Categories.DEVICES);
+            List<EquipmentDTO> documents = organizerService.allAddedEquipmentsByCategory(tripDTO.getId(),Categories.DOCUMENTS);
+            List<EquipmentDTO> clothes = organizerService.allAddedEquipmentsByCategory(tripDTO.getId(),Categories.SPECIAL_CLOTHES);
+            List<EquipmentDTO> other = organizerService.allAddedEquipmentsByCategory(tripDTO.getId(),Categories.OTHER);
+            if(!devices.isEmpty()){ model.addAttribute("addedDevices",devices); }
+            if(!documents.isEmpty()){ model.addAttribute("addedDocuments",documents); }
+            if(!clothes.isEmpty()){ model.addAttribute("addedClothes",clothes); }
+            if(!other.isEmpty()){ model.addAttribute("addedOther",other); }
+
             if(transportDTO.size()>0){
             model.addAttribute("addedTransports",transportDTO);}
+
         }
 
         return "organizer-page";
@@ -97,5 +108,25 @@ public class OrganizerController {
         organizerService.setUpCost(idTransport,cost);
         return "redirect:/organizer?tripIdNumber="+tripId;
     }
+
+    @PostMapping("/addEquipment")
+    public String addDevice(String name, Long tripId,Categories category,Principal principal){
+        if(tripId==null|| tripId==-1){
+            return "organizer-page";
+        }
+        organizerService.addEquipment(name,tripId,category,principal);
+        return "redirect:/organizer?tripIdNumber="+tripId;
+    }
+
+    @PostMapping("/addDetails")
+    public String addDetails(String description,Integer quantity, Boolean active, Long tripId, Long idEquipment){
+        if(tripId==null|| tripId==-1){
+            return "organizer-page";
+        }
+        organizerService.setUpDetails(idEquipment,quantity,description,active);
+        return "redirect:/organizer?tripIdNumber="+tripId;
+    }
+
+
 
 }

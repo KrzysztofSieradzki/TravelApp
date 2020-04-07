@@ -12,7 +12,7 @@ public enum Devices {
     FLASHLIGHT("Flashlight"),
     HEADPHONES("Headphones"),
     LAPTOP("Laptop"),
-    MP3("Mp3"),
+    MP3("Mp3/Mp4"),
     GPS("GPS"),
     E_READER("E-reader"),
     OTHER("Other");

@@ -6,6 +6,7 @@ import pl.com.travelApp.application.model.enums.Categories;
 
 @Data
 public class EquipmentDTO {
+    private Long id;
     private String name;
     private Integer quantity;
     private Boolean active;
