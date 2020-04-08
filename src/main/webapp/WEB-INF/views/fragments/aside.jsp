@@ -31,6 +31,11 @@
                 </a>
             </li>
             <li class="sub-menu">
+                <a href="/profile">
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="sub-menu">
                 <a href="/trip">
                     <span>Trips</span>
                 </a>
