@@ -42,7 +42,7 @@
     <div class="form-group">
         <label class="control-label col-md-3" for="status" style="text-align: center; width: 100%;">Status</label>
         <select class="form-control" name="status" id="status">
-            <option value="-" selected>--What is the status?--</option>
+            <option value="${status.get(1)}" selected>--What is the status?--</option>
             <c:forEach items="${status}" var="stat">
                 <option value="${stat}">${stat.status}</option>
             </c:forEach>
@@ -54,7 +54,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3" for="year" style="text-align: center; width: 100%;">Year</label>
                             <select class="form-control" name="year" id="year">
-                                <option value="-" selected>--Choose the year--</option>
+                                <option value="2020" selected>--Choose the year--</option>
                                 <c:forEach items="${years}" var="year">
                                 <option value="${year}">${year}</option>
                                 </c:forEach>
@@ -67,7 +67,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3" for="id_country" style="text-align: center; width: 100%;">Country</label>
                 <select class="form-control" name="id_country" id="id_country">
-                    <option value="-" selected>--Choose the country--</option>
+                    <option value="${null}" selected>--Choose the country--</option>
                     <c:forEach items="${countries}" var="country">
                         <option value="${country}">${country.country}</option>
                     </c:forEach>
@@ -113,7 +113,7 @@
                 <div class="custom-box">
                     <div class="servicetitle">
                         <h4>TO VISIT</h4>
-                        <hr>#ad8e03
+                        <hr>
                     </div>
                     <div class="icn-main-container">
                         <span class="icn-container" style="font-size: 45px;">${toVisit.size()}</span>

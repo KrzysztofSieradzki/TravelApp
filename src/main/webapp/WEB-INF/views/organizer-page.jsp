@@ -182,14 +182,6 @@
                                                                 <h5>Description: ${addedDev.description}</h5>
                                                                     </c:otherwise>
                                                                 </c:choose>
-                                                                <c:choose>
-                                                                    <c:when test="${addedDev.active==null}">
-                                                                        <h5>no state declared</h5>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                <h5>Does it works ? -> ${addedDev.active}</h5>
-                                                                    </c:otherwise>
-                                                                </c:choose>
                                                             </div>
                                                             <div style="float: right"> <form action="/organizer/addDetails" method="post">
                                                                 <label for ="quantity"> Quantity </label>
@@ -262,14 +254,6 @@
                                                                 </c:when>
                                                                 <c:otherwise>
                                                                     <h5>Description: ${addedDoc.description}</h5>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                            <c:choose>
-                                                                <c:when test="${addedDoc.active==null}">
-                                                                    <h5>no state declared</h5>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <h5>Is it valid ? -> ${addedDoc.active}</h5>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                         </div>
@@ -345,14 +329,6 @@
                                                                         <h5>Description: ${addedClo.description}</h5>
                                                                     </c:otherwise>
                                                                 </c:choose>
-                                                                <c:choose>
-                                                                    <c:when test="${addedClo.active==null}">
-                                                                        <h5>no state declared</h5>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <h5>Is it clean ? -> ${addedClo.active}</h5>
-                                                                    </c:otherwise>
-                                                                </c:choose>
                                                             </div>
                                                             <div style="float: right"> <form action="/organizer/addDetails" method="post">
                                                                 <label for ="quantity"> Quantity </label>
@@ -425,14 +401,6 @@
                                                                     </c:when>
                                                                     <c:otherwise>
                                                                         <h5>Description: ${addedOth.description}</h5>
-                                                                    </c:otherwise>
-                                                                </c:choose>
-                                                                <c:choose>
-                                                                    <c:when test="${addedOth.active==null}">
-                                                                        <h5>no state declared</h5>
-                                                                    </c:when>
-                                                                    <c:otherwise>
-                                                                        <h5>Does it works ? -> ${addedOth.active}</h5>
                                                                     </c:otherwise>
                                                                 </c:choose>
                                                             </div>

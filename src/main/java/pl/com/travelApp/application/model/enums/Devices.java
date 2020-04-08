@@ -5,7 +5,7 @@ public enum Devices {
     CAMERA("Camera"),
     TRIPOD("Tripod"),
     MEMORY_CARD("Memory card"),
-    SMARTPHONE("SMartphone"),
+    SMARTPHONE("Smartphone"),
     SMARTWATCH("Smartwatch"),
     CHARGER("Charger"),
     SELFIE_STICK("Selfie stick"),

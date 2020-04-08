@@ -63,6 +63,10 @@ public class TripController {
 
     @PostMapping("/add-trip")
     public String addTrip(TripDTO tripDTO, Principal principal){
+        if(tripDTO==null || tripDTO.getId_country()==null){
+            return "redirect:/trip";
+        }
+
         tripService.addNewTrip(tripDTO, principal);
 
         return"redirect:/trip";
