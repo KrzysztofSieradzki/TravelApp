@@ -47,6 +47,9 @@ public class ExperienceService {
     }
 
     public Levels yourLevel(int score){
+        if(score<1) {
+        return Levels.PADAWAN;
+        }
         Levels[] allLevels = Levels.values();
         for(int i=1; i<=allLevels.length;i++){
             if(allLevels[i-1].getLevel()<=score && score<allLevels[i].getLevel())
@@ -84,12 +87,13 @@ public class ExperienceService {
     public List<Integer> historyVisitedByYears(Principal principal){
         List<TripDTO> historyOfVisited =  findAllByStatusAndSort(principal,Status.VISITED);
         List<TripDTO> predictedYears = findAllByStatusAndSort(principal,Status.TO_VISIT);
-        int from = historyOfVisited.get(0).getYear();
-        int to = predictedYears.get(predictedYears.size()-1).getYear();
         List<Integer> years = new ArrayList<>();
+        if(historyOfVisited.size()>0){
+            int from = historyOfVisited.get(0).getYear();
+            int to = predictedYears.get(predictedYears.size()-1).getYear();
         for(int i = from; i<=to; i++){
             years.add(i);
-        }
+        }}
         return years;
     }
 
